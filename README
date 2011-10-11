@@ -5,4 +5,19 @@ A homebrew robot system from scratch based on ros reusable modules.
 This projects gives an introduction  for beginners  to setup an own robot system from scratch using ros components.
 The idea is to show complete development step by step.
 
+Steps:
+
+Install ros at Ubuntu
+
+Setup prog environment
+
+Install Arduino
+
+Setup Arduino SDK
+
+Preparing Arduino for MockBot and ros
+
+Testing Arduino and ros
+
+
 
