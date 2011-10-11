@@ -11,6 +11,12 @@ SERVO_STOP=90
 SERVO_MAX_FORWARD=0
 SERVO_MAX_BACKWARDS=179
 
+-- 
+RPS=1 -- revolutions per second
+RPM=RPS/60 -- revolutions per minute
+
+w=2*PI*RPS
+
 cmd_vel_linear_x=0 -- DEFAULT vel_linear value at start
 cmd_vel_angular_z=0 -- DEFAULT vel_angular at start
 
