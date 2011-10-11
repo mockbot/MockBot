@@ -1,0 +1,8 @@
+Project: MockBot 2011.10.10
+
+A homebrew robot system from scratch based on ros reusable modules.
+
+This projects gives an introduction  for beginners  to setup an own robot system from scratch using ros components.
+The idea is to show complete development step by step.
+
+
