@@ -23,14 +23,51 @@ Setting up a Mobile Robot with ROS
 http://www.ros.org/wiki/ROS/Tutorials/MobileBase
 
 Stack:
+======
 MockBot
 
 Packages/Nodes:
+===============
+
 MockBotSerial
-MockBotVelocity2Servo
+-------------
+-Publish: /adc/adc0-5 
+-Msg: ADC
+-Subscribe: /servo1 /servo2
+-Msg: STD_MSG
+
+MockBotVelocity2Servo 
+---------------------
+-Publish: /servo1 /servo2
+-Msg: STD_MSG
+-Subscribe: /cmd_vel
+-Msg: Twist
+
 MockBotTeleopJoystick
+---------------------
+-Publish:
+-Subscribe:
+
 MockBotBaseNavigation
+---------------------
+-Publish:
+-Subscribe:
+
+MockBotKinect
+-------------
+-Publish:
+-Subscribe:
+
 MockBotGPS
+----------
+-Publish:
+-Subscribe:
+
 MockBotMaps
+-----------
+-Publish:
+-Subscribe:
 
-
+Hardware:
+=========
+see SPEC directory
