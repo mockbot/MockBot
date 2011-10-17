@@ -1,0 +1,14 @@
+<package>
+  <description brief="MockBotVelocity2Servo">
+
+     MockBotVelocity2Servo
+
+  </description>
+  <author>Robot Operating System</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/MockBotVelocity2Servo</url>
+
+</package>
+
+
