@@ -19,6 +19,8 @@ Preparing Arduino for MockBot and ros
 
 Testing Arduino and ros
 
+Playing with RVIZ and URDF
+
 Setting up a Mobile Robot with ROS
 http://www.ros.org/wiki/ROS/Tutorials/MobileBase
 
@@ -69,6 +71,11 @@ MockBotSpeech
 -Subscribe:
 
 MockBotMaps
+-----------
+-Publish:
+-Subscribe:
+
+MockBotURDF
 -----------
 -Publish:
 -Subscribe:
