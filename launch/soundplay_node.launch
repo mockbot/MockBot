@@ -1,0 +1,3 @@
+<launch>
+<node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
+</launch>
