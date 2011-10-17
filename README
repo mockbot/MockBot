@@ -5,21 +5,37 @@ A homebrew robot system from scratch based on ros reusable modules.
 This projects gives an introduction  for beginners  to setup an own robot system from scratch using ros components.
 The idea is to show complete development step by step.
 
+Checkout MockBot source 
+-----------------------
+git clone https://github.com/mockbot/MockBot.git
+
 Steps:
 
-Install ros at Ubuntu
+Read the following sources:
+https://github.com/mockbot/MockBot/blob/master/README
+http://www.ros.org/wiki/
+http://answers.ros.org/questions/
 
-Setup prog environment
+Install ros at Ubuntu with standard debian methods
+
+Setup prog environment and modify your bashrc
+
 
 Install Arduino
+http://www.arduino.cc/
 
 Setup Arduino SDK
+Setup sketch-directory for your ros development
 
 Preparing Arduino for MockBot and ros
 
 Testing Arduino and ros
 
+Test servos with your joystick
+
 Playing with RVIZ and URDF
+
+Setup gpsd
 
 Setting up a Mobile Robot with ROS
 http://www.ros.org/wiki/ROS/Tutorials/MobileBase
