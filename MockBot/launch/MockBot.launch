@@ -1,0 +1,19 @@
+<launch>
+	<node name="openni_camera" pkg="openni_camera" type="openni_node" />
+
+	<node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server" />
+
+	<node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
+
+	<node name="utm_odometry_node" pkg="gps_common" type="utm_odometry_node"/>
+
+	<node name="serial_node" pkg="rosserial_python" type="serial_node.py" >
+		<param name = "port" value="/dev/ttyACM0" />
+	</node>
+
+        <node name="gpsd_client" pkg="gpsd_client" type="gpsd_client" >
+                <param name = "host" value = "127.0.0.1" />
+                <param name = "port" value = "2947" />
+        </node>
+
+</launch>

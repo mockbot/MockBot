@@ -1,0 +1,47 @@
+Starting ROS MockBot
+./MockBot.sh: 3: source: not found
+./MockBot.sh: 4: source: not found
+netlib_connectsock() returns socket on fd 10
+terminate called after throwing an instance of 'boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::math::rounding_error> >'
+  what():  Error in function boost::math::round<d>(d): Value nan can not be represented in the target integer type.
+[31m[gpsd_client-4] process has died [pid 11972, exit code -6].
+log files: /home/ros/.ros/log/c65488aa-0f60-11e1-9898-90e6bac29657/gpsd_client-4*.log[0m
+** Message: pygobject_register_sinkfunc is deprecated (GstObject)
+[rospack] warning: error parsing manifest file at [./manifest.xml]
+[rospack] warning: error parsing manifest file at [./manifest.xml]
+... logging to /home/ros/.ros/log/c65488aa-0f60-11e1-9898-90e6bac29657/roslaunch-ros-11950.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/ros/prog/ros/stacks/MockBot/MockBot/launch/MockBot.launch
+[1mstarted roslaunch server http://ros:37170/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosversion
+ * /gpsd_client/host
+ * /rosdistro
+ * /gpsd_client/port
+
+NODES
+  /
+    openni_camera (openni_camera/openni_node)
+    mjpeg_server (mjpeg_server/mjpeg_server)
+    soundplay_node (sound_play/soundplay_node.py)
+    gpsd_client (gpsd_client/gpsd_client)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/ros/prog/ros/stacks/MockBot/MockBot/launch/MockBot.launch http://localhost:11311
+core service [/rosout] found
+[1mprocess[openni_camera-1]: started with pid [11969][0m
+[1mprocess[mjpeg_server-2]: started with pid [11970][0m
+[1mprocess[soundplay_node-3]: started with pid [11971][0m
+[1mprocess[gpsd_client-4]: started with pid [11972][0m
+[soundplay_node-3] killing on exit
+[openni_camera-1] killing on exit
+ [mjpeg_server-2] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
