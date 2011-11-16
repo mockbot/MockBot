@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('MockBotVelocity2Servo')
 import rospy
+
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
+from nav_msgs.msg import *
+
 
 def callback(data):
     rospy.loginfo(rospy.get_name()+"READ: %s",data.data)
