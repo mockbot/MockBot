@@ -16,4 +16,5 @@
                 <param name = "port" value = "2947" />
         </node>
 
+	<node name="Velocity2Servo" pkg="MockBotVelocity2Servo" type="MockBotVelocity2Servo.py"/>
 </launch>

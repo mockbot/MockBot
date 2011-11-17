@@ -3,6 +3,7 @@ import roslib; roslib.load_manifest('MockBotVelocity2Servo')
 import rospy
 
 from std_msgs.msg import String
+from std_msgs.msg import UInt16
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import *
 
@@ -16,17 +17,18 @@ def velocmdlistener():
     rospy.spin()
 
 def servo():
-    pub1 = rospy.Publisher('servo1', String)
-    pub2 = rospy.Publisher('servo2', String)
+    pub1 = rospy.Publisher('servo1', UInt16)
+    pub2 = rospy.Publisher('servo2', UInt16)
     rospy.init_node('servo')
     while not rospy.is_shutdown():
-        str1 = "90"
-        str2 = "90"
-        rospy.loginfo(str1)
-        rospy.loginfo(str2)
-        pub1.publish(String(str1))
-        pub2.publish(String(str2))
+        s1 = 90
+        s2 = 90
+        rospy.loginfo(s1)
+        rospy.loginfo(s2)
+        pub1.publish(UInt16(s1))
+        pub2.publish(UInt16(s2))
         rospy.sleep(0.5)
+
 if __name__ == '__main__':
     try:
         servo()
