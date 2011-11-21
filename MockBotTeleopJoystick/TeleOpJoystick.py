@@ -36,7 +36,7 @@ Created February, 2011
   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
 
-import roslib; roslib.load_manifest('ardros')
+import roslib; roslib.load_manifest('MockBotTeleopJoystick')
 import rospy
 from geometry_msgs.msg import Twist
 from joy.msg import Joy
