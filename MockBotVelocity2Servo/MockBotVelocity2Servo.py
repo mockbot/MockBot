@@ -7,29 +7,26 @@ from std_msgs.msg import UInt16
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import *
 
-def cmd_vel_2_servo(cmd_vel_data):
-   py.loginfo(rospy.get_name()+"READ: %s",cmd_vel_data.data)
-
-def cmd_vel_callback(cmd_vel_data):
-    rospy.loginfo(rospy.get_name()+"READ: %s",cmd_vel_data.data)
+def cmd_vel_callback(cmd_vel):
+    ROBOT_WIDTH=0.44
+    left_speed_out = cmd_vel.linear.x - cmd_vel.angular.z*ROBOT_WIDTH/2
+    right_speed_out = cmd_vel.linear.x + cmd_vel.angular.z*ROBOT_WIDTH/2
+    v = cmd_vel.linear.x        # m/s
+    omega = cmd_vel.angular.z      # rad/s
+    rospy.loginfo("Handling twist command: " + str(v) + "," + str(omega))
 
 def velocmdlistener():
-    #rospy.init_node('velocmdlistener', anonymous=True)
     rospy.Subscriber("cmd_vel", Twist, cmd_vel_callback)
-    #rospy.spin()
 
 def servo():
-    pub1 = rospy.Publisher('servo1', UInt16)
-    pub2 = rospy.Publisher('servo2', UInt16)
-    #rospy.init_node('servo')
+    servo1 = rospy.Publisher('servo1', UInt16)
+    servo2 = rospy.Publisher('servo2', UInt16)
     while not rospy.is_shutdown():
         s1 = 90
         s2 = 90
-        # rospy.loginfo(cmd_vel_data.data)
-        rospy.loginfo(s1)
-        rospy.loginfo(s2)
-        pub1.publish(UInt16(s1))
-        pub2.publish(UInt16(s2))
+        rospy.loginfo("S1:"+ str(s1) + " S2:" + str(s2))
+        servo1.publish(UInt16(s1))
+        servo2.publish(UInt16(s2))
         rospy.sleep(0.5)
 
 if __name__ == '__main__':
