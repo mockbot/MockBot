@@ -1,4 +1,7 @@
 Project: MockBot 2011.10.10
+MockBot1 Electric
+MockBot2 Groovy Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
+
 
 A homebrew robot system from scratch based on ros reusable modules.
 
@@ -17,6 +20,10 @@ http://www.ros.org/wiki/
 http://answers.ros.org/questions/
 
 Install ros at Ubuntu with standard debian methods
+
+NEW: Script for installation of complete ROS system from scratch
+
+install_ros_groovy.sh
 
 Setup prog environment and modify your bashrc
 

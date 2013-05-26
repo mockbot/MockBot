@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<robot name="MockBot-0.2011.09.21.1000">
+
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<cylinder length="0.42" radius="0.02"/>
+			</geometry>
+			<origin rpy="1.57075 0 0" xyz="0 0 0"/>
+			<material name="grey">
+				<color rgba=".5 .5 .5 1"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="f_axle">
+		<visual>
+			<geometry>
+				<cylinder length="0.42" radius="0.02"/>
+			</geometry>
+			<origin rpy="0 1.57075 0" xyz="0 0.2 0"/>
+			<material name="grey">
+				<color rgba=".5 .5 .5 1"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="r_axle">
+		<visual>
+			<geometry>
+				<cylinder length="0.42" radius="0.02"/>
+			</geometry>
+			<origin rpy="0 1.57075 0" xyz="0 -0.2 0"/>
+			<material name="grey">
+				<color rgba=".5 .5 .5 1"/>
+			</material>
+		</visual>
+	</link>
+
+        <link name="lf_wheel">
+                <visual>
+                        <geometry>
+                                <cylinder length="0.075" radius="0.20"/>
+                        </geometry>
+			<origin rpy="0 1.57075 0" xyz="-0.2 -0.2 0"/>
+			<material name="red">
+				<color rgba="1 0 0 1"/>
+			</material>
+                </visual>
+        </link>
+
+        <link name="rf_wheel">
+                <visual>
+                        <geometry>
+                                <cylinder length="0.075" radius="0.20"/>
+                        </geometry>
+			<origin rpy="0 1.57075 0" xyz="0.2 -0.2 0"/>
+			<material name="red">
+				<color rgba="1 0 0 1"/>
+			</material>
+                </visual>
+        </link>
+        
+	<link name="lr_wheel">
+                <visual>
+                        <geometry>
+                                <cylinder length="0.075" radius="0.20"/>
+                        </geometry>
+			<origin rpy="0 1.57075 0" xyz="0.2 0.2 0"/>
+			<material name="red">
+				<color rgba="1 0 0 1"/>
+			</material>
+                </visual>
+        </link>
+
+	<link name="rr_wheel">
+                <visual>
+                        <geometry>
+                                <cylinder length="0.075" radius="0.20"/>
+                        </geometry>
+			<origin rpy="0 1.57075 0" xyz="-0.2 0.2 0"/>
+			<material name="red">
+				<color rgba="1 0 0 1"/>
+			</material>
+                </visual>
+        </link>
+
+	<joint name="f_axle_base_link" type="fixed">
+		<parent link="base_link"/>
+		<child link="f_axle"/>
+	</joint>
+	
+	<joint name="r_axle_base_link" type="fixed">
+		<parent link="base_link"/>
+		<child link="r_axle"/>
+	</joint>
+
+	<joint name="f_axle_lf_wheel" type="fixed">
+		<parent link="f_axle"/>
+		<child link="lf_wheel"/>
+	</joint>
+
+	<joint name="f_axle_rf_wheel" type="fixed">
+		<parent link="f_axle"/>
+		<child link="rf_wheel"/>
+	</joint>
+
+	<joint name="r_axle_lr_wheel" type="fixed">
+		<parent link="r_axle"/>
+		<child link="lr_wheel"/>
+	</joint>
+	
+	<joint name="r_axle_rr_wheel" type="fixed">
+		<parent link="r_axle"/>
+		<child link="rr_wheel"/>
+	</joint>
+
+</robot>
+

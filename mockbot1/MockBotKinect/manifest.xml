@@ -1,0 +1,14 @@
+<package>
+  <description brief="MockBotKinect">
+
+     MockBotKinect
+
+  </description>
+  <author>Robot Operating System</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/MockBotKinect</url>
+
+</package>
+
+
