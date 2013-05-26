@@ -1,0 +1,3 @@
+#SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0001", ATTRS{serial}=="649323438383512122B1", SYMLINK+="arduino_uno_649323438383512122B1"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0001", ATTRS{serial}=="649323438383512122B1", SYMLINK+="ttyUSB0"
+
