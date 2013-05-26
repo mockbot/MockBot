@@ -27,81 +27,15 @@ install_ros_groovy.sh
 
 Setup prog environment and modify your bashrc
 
+Modules:
+========
+Sound
+Openni (kinect)
+Arduino (servos and analog ports)
 
-Install Arduino
-http://www.arduino.cc/
-
-Setup Arduino SDK
-Setup sketch-directory for your ros development
-
-Preparing Arduino for MockBot and ros
-
-Testing Arduino and ros
-
-Test servos with your joystick
-
-Playing with RVIZ and URDF
-
-Setup gpsd
-
-Setting up a Mobile Robot with ROS
-http://www.ros.org/wiki/ROS/Tutorials/MobileBase
-
-Stack:
-======
-MockBot
-
-Packages/Nodes:
-===============
-
-MockBotSerial
--------------
--Publish: /adc/adc0-5 
--Msg: ADC
--Subscribe: /servo1 /servo2
--Msg: STD_MSG
-
-MockBotVelocity2Servo 
----------------------
--Publish: /servo1 /servo2
--Msg: STD_MSG
--Subscribe: /cmd_vel
--Msg: Twist
-
-MockBotTeleopJoystick
----------------------
--Publish:
--Subscribe:
-
-MockBotBaseNavigation
----------------------
--Publish:
--Subscribe:
-
-MockBotKinect
--------------
--Publish:
--Subscribe:
-
-MockBotGPS
-----------
--Publish:
--Subscribe:
-
-MockBotSpeech
--------------
--Publish:
--Subscribe:
-
-MockBotMaps
------------
--Publish:
--Subscribe:
-
-MockBotURDF
------------
--Publish:
--Subscribe:
+http://robotwebtools.org/
+MJpegserver and RosBridge
+RMS
 
 Hardware:
 =========
