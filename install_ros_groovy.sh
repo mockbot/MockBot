@@ -31,11 +31,10 @@ fi
 
 source ~/.bashrc
 
-grep -i "ROS_PACKAGE_PATH=.:/opt/ros/prog:$ROS_PACKAGE_PATH" ~/.bashrc
+grep -i "ROS_PACKAGE_PATH=.:/opt/ros/prog:/opt/ros/groovy/share:/opt/ros/groovy/stacks" ~/.bashrc
 if [ $? -eq 1 ] ; then
 	echo ROS_PACKAGE_PATH modified
-	echo ROS_PACKAGE_PATH=.:/opt/ros/prog:$ROS_PACKAGE_PATH
-	echo ROS_PACKAGE_PATH=.:/opt/ros/prog:$ROS_PACKAGE_PATH >> ~/.bashrc
+	echo ROS_PACKAGE_PATH=.:/opt/ros/prog:/opt/ros/groovy/share:/opt/ros/groovy/stacks >> ~/.bashrc
 	source ~/.bashrc
 else
 	echo ROS_PACKAGE_PATH OK
