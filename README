@@ -8,24 +8,35 @@ A homebrew robot system from scratch based on ros reusable modules.
 This projects gives an introduction  for beginners  to setup an own robot system from scratch using ros components.
 The idea is to show complete development step by step.
 
-Checkout MockBot source 
------------------------
-git clone https://github.com/mockbot/MockBot.git
-
-Steps:
-
-Read the following sources:
-https://github.com/mockbot/MockBot/blob/master/README
-http://www.ros.org/wiki/
-http://answers.ros.org/questions/
-
 Install ros at Ubuntu with standard debian methods
 
 NEW: Script for installation of complete ROS system from scratch
 
-install_ros_groovy.sh
+1. install basic ubuntu system 
+2. install git. 
+   sudo apt-get install git
+3. checkout MockBot from github
+   sudo mkdir -p /opt/ros/prog
+   cd /opt/ros/prog
+   git clone https://github.com/mockbot/MockBot.git
+4. install complete ros-groovy-mockbot environment
+   cd MockBot/mockbot2
+   sudo ./install_ros_groovy.sh
 
-Setup prog environment and modify your bashrc
+Ready!
+Enjoy the system :-)
+
+MockBot source at GitHub
+------------------------
+https://github.com/mockbot/MockBot
+
+
+Read the following sources:
+http://www.ros.org/wiki/
+http://answers.ros.org/questions/
+
+
+MockBot Features:
 
 Modules:
 ========
@@ -40,3 +51,9 @@ RMS
 Hardware:
 =========
 see SPEC directory
+
+Changes:
+Current ATOM CPU is too slow for SLAM and more.
+I've changed to Intel NUK i3 CPU, 8GB memory and 64GB SSD
+It's amazing !!!
+
