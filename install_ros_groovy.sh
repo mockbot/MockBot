@@ -43,7 +43,7 @@ fi
 sudo apt-get install python-rosinstall
 
 echo Adding additional packages
-sudo apt-get install ros-groovy-audio-common ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-rosserial-arduino ros-groovy-rosserial-python ros-groovy-rosbridge-suite ros-groovy-mjpeg-server ros-groovy-mjpegcanvasjs 
+sudo apt-get install ros-groovy-audio-common ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-rosserial-arduino ros-groovy-rosserial-python ros-groovy-rosbridge-suite ros-groovy-mjpeg-server ros-groovy-mjpegcanvasjs ros-groovy-tf2-web-republisher
 
 sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql
 
