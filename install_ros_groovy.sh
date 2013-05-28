@@ -47,5 +47,4 @@ sudo apt-get install ros-groovy-audio-common ros-groovy-openni-launch ros-groovy
 
 sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql
 
-
-
+sudo chown -R $USER:$USER ~/.ros
