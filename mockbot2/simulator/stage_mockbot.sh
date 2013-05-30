@@ -1,1 +1,1 @@
-rosrun stage stage ./mockbot.world
+rosrun stage stageros ./mockbot.world
