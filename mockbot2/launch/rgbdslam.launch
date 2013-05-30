@@ -1,0 +1,5 @@
+<launch>
+	<include file = "$(find openni_launch)/launch/openni.launch" />
+	<include file = "$(find rgbdslam)/launch/headless.launch" />
+</launch>
+
