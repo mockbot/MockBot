@@ -1,23 +1,23 @@
 define rangesensor ranger
 (
    sensor( 			
-    range [ 0.0  30.0 ]
+    range [ 0.3 3.0 ]
     fov 120.25
    samples 1081
   )
 
   # generic model properties
   color "black"
-  size [ 0.05 0.05 0.1 ]
+  size [ 0.30 0.1 0.1 ]
 )
 
 define mockbot position
 (
-  size [0.35 0.35 0.25]
+  size [0.80 0.60 0.50]
   origin [-0.05 0 0 0]
   gui_nose 1
   drive "diff"
-  rangesensor(pose [ 0.050 0.000 0 0.000 ])
+  rangesensor(pose [ 0.030 0.000 0 0.000 ])
 )
 
 define floorplan model
@@ -35,6 +35,7 @@ define floorplan model
   gui_outline 0
   gripper_return 0
   fiducial_return 0
+  ranger_return 1
   #laser_return 1
 )
 
@@ -47,6 +48,15 @@ interval_sim 100  # simulation timestep in milliseconds
 window
 ( 
   size [ 960.000 960.000 ] 
+  #pcam_loc [ 0 0 ]
+  #pcam_angle [ 70 0 ]
+  show_data 1
+  show_flags 1
+  show_blocks 1
+  show_clock 1
+  show_footprints 0
+
+  pcam_on 0
 )
 
 # load an environment bitmap
