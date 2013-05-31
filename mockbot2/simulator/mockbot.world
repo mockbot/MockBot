@@ -2,7 +2,7 @@ define rangesensor ranger
 (
    sensor( 			
     range [ 0.3 3.0 ]
-    fov 120.25
+    fov 20.00
    samples 1081
   )
 
@@ -13,7 +13,7 @@ define rangesensor ranger
 
 define mockbot position
 (
-  size [0.80 0.60 0.50]
+  size [0.80 0.60 0.40]
   origin [-0.05 0 0 0]
   gui_nose 1
   drive "diff"
@@ -36,7 +36,7 @@ define floorplan model
   gripper_return 0
   fiducial_return 0
   ranger_return 1
-  #laser_return 1
+  laser_return 1
 )
 
 # set the resolution of the underlying raytrace model in meters
