@@ -50,6 +50,14 @@ sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mys
 sudo apt-get install ros-groovy-freiburg-tools ros-groovy-octomap-mapping
 sudo apt-get install ros-groovy-hector-slam ros-groovy-hector-models ros-groovy-hector-worldmodel
 
+sudo apt-get install nut python-nut
+
 echo set permissions for user $SUDO_USER
 sudo chmod -R 777 $HOME/.ros
 sudo chown -R ros:ros $HOME/.ros
+
+echo add $SUDO_USER to groups
+sudo usermod -aG dialout $SUDO_USER
+sudo usermod -aG audio $SUDO_USER
+
+
