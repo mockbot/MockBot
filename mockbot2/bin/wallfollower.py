@@ -21,7 +21,7 @@ class wander:
 	    #rospy.loginfo("links")
             tw = Twist(Vector3(self.v,0,0), Vector3(0,0,self.w))
         else:
-            self.v = 2.0; self.w = -0.5
+            self.v = 1.0; self.w = -0.5
         tw = Twist(Vector3(self.v,0,0), Vector3(0,0,self.w))
         self.pub.publish(tw)
 
