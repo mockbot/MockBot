@@ -1,7 +1,6 @@
 <launch>
     <node name="stage" pkg="stage" type="stageros" 
           args="$(find mockbot2)/simulator/mockbot.world"/>
-    <node name="wallfollower" pkg="mockbot2" type="wallfollower.py"/>
     <node name="slam" pkg="gmapping" type="slam_gmapping">
         <remap from="scan" to="base_scan"/>
     </node>
@@ -9,4 +8,5 @@
     <node name="rviz" pkg="rviz" type="rviz"
           args="-d $(find ros_liv_wander)/rviz/robot-gmapping.vcg"/>
 -->
+    <node name="wallfollower" pkg="mockbot2" type="wallfollower.py"/>
 </launch>
