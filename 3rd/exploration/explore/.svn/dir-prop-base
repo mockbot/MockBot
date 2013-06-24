@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 16
+lib
+
+build
+
+bin
+
+END

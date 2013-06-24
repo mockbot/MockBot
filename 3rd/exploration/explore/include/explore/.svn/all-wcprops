@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/p/bosch-ros-pkg/code/!svn/ver/115/trunk/stacks/exploration/explore/include/explore
+END
+explore.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/p/bosch-ros-pkg/code/!svn/ver/115/trunk/stacks/exploration/explore/include/explore/explore.h
+END
+loop_closure.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/p/bosch-ros-pkg/code/!svn/ver/115/trunk/stacks/exploration/explore/include/explore/loop_closure.h
+END
+explore_frontier.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/p/bosch-ros-pkg/code/!svn/ver/115/trunk/stacks/exploration/explore/include/explore/explore_frontier.h
+END
