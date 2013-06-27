@@ -1,25 +1,26 @@
 <launch>
 <!-- Description: MockBot2 for ROS Groovy and Ubuntu 12.04 LTS -->
-  <!--node name="audio_play" pkg="audio_play" type="audio_play" output="screen">
+  <node name="audio_play" pkg="audio_play" type="audio_play" output="screen">
     <param name="dst" value="alsasink"/>
- </node-->
+  </node>
 
   <node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server">
   </node>
 
   <include file = "$(find sound_play)/soundplay_node.launch" />
+
   <include file = "$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
   <include file = "$(find openni_launch)/launch/openni.launch" />
-<node name="serial_node" pkg="rosserial_python" type="serial_node.py" >
-                <param name = "port" value="/dev/arduino_uno_649323438383512122B1" />
-        </node>
-<!--node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
-        <param name="~port" value="/dev/ttyACM0" />
-        <param name="~baud" value="115200" />
-  </node -->
-<node name="vel2servo" pkg="mockbot2" type="vel2servo.py" >
-	<param name = "option" value="test" />
-</node>
+
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
+    <param name="~port" value="/dev/ttyACM0" />
+    <param name="~baud" value="115200" />
+  </node>
+
+  <node name="base_controller" pkg="mockbot2" type="base_controller.py" >
+    <param name = "option" value="debug" />
+  </node>
 
 </launch>
 

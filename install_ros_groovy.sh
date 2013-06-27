@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo Setup some usefull system utils
-sudo apt-get install ssh htop iptraf bacula-fd flite
+sudo apt-get install ssh htop iptraf bacula-fd flite mosh screen
 sudo apt-get install ros-groovy-desktop-full
 
 sudo rosdep init
