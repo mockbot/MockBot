@@ -12,6 +12,7 @@
   <include file = "$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
   <include file = "$(find openni_launch)/launch/openni.launch" />
+  <include file = "$(find mockbot2)/launch/rgbdslam.launch" />
 
   <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
     <param name="~port" value="/dev/ttyACM0" />
