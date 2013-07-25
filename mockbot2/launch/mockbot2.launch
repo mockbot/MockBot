@@ -4,6 +4,9 @@
     <param name="dst" value="alsasink"/>
   </node>
 
+  <node name="kinect_aux" pkg="mockbot2" type="kinect_aux_node">
+  </node>
+
   <node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server">
   </node>
 
