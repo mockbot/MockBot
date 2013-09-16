@@ -1,4 +1,0 @@
-#!/bin/bash
-dpkg --get-selections >ubuntu-selections
-grep ros-groovy ubuntu-selections >ros-groovy-selections
-
