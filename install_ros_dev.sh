@@ -69,4 +69,13 @@ echo add $SUDO_USER to groups
 sudo usermod -aG dialout $SUDO_USER
 sudo usermod -aG audio $SUDO_USER
 
+cd /opt/ros/prog
+if [ -e /opt/ros/prog/MockBot ] ; then
+	cd MockBot
+	git pull
+else
+	git clone https://github.com/mockbot/MockBot.git
+fi
 
+
+echo "Have fun"

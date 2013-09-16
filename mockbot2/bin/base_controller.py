@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 ##############################################################################
-# Base controller for MockBot2
+# MobileBase controller for MockBot2
 # This is a simple control of the 2 servos connected to the Arduino UNO board
 # Author: chrimo@moccy.xdsnet.de
 #
