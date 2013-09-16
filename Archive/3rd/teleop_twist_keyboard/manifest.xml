@@ -1,0 +1,11 @@
+<package>
+  <description brief="teleop_twist_keyboard">
+Simple keyboard teleoping for Twist based robots.
+  </description>
+  <author>Graylin Trevor Jay</author>
+  <email>tjay@cs.brown.edu</email>
+  <license>Creative Commons Attribution</license>
+
+  <depend package="geometry_msgs"/>
+
+</package>

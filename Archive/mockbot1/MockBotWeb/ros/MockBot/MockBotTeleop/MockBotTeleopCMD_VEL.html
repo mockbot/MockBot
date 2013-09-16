@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+        <script type="text/javascript" src="./rosbridge/ros.min.js"></script>
+        <script type="text/javascript">
+    var x;
+    var y;
+    var z;
+    var theta;
+    var img;
+    var connection;
+
+    function pub() {
+      //connection.publish('/cmd_vel', 'geometry_msgs/Twist', '{"linear":{"x":' + x + ',"y":' + y + ', "z":' + z + '}, "angular":{"x":0,"y":0,"z":' + theta + '}}');
+      connection.publish('/turtle1/command_velocity', 'turtlesim/Velocity', '{"linear":' + x + ', "angular":' + theta + '}');
+    }
+    function takeoff() {
+      connection.publish('/ardrone/takeoff', 'std_msgs/Empty', '{}');
+    }
+    function land() {
+      connection.publish('/ardrone/land', 'std_msgs/Empty', '{}');
+    }
+    function handleKey(code, down) {
+      var scale = 0;
+      if (down == true) {
+        scale = 1;
+      }
+      scale = 5;
+      switch (code) {
+      case 37:
+        //left
+        theta = 1 * scale;
+        break;
+      case 38:
+        //up
+        x = .25 * scale;
+        theta = 0;
+        break;
+      case 39:
+        //right 
+        theta = -1 * scale;
+        break;
+      case 40:
+        //down
+        x = -.25 * scale;
+        theta = 0;
+        break;
+      case 90:
+        //z
+        y = .25 * scale;
+        break;
+      case 88:
+        //x
+        y = -.25 * scale;
+        break;
+      case 33:
+        //pg up
+        z = 0.25 * scale;
+        break;
+      case 34:
+        //pg down
+        z = -0.25 * scale;
+        break;
+      case 36:
+        //home
+        x = 0;
+        y = 0;
+        z = 0;
+        theta = 0;
+        takeoff();
+        break;
+      case 35:
+        //end
+        x = 0;
+        y = 0;
+        z = 0;
+        theta = 0;
+        land();
+        break;
+      }
+      pub();
+    }
+    
+    function main() {
+      x = 0;
+      y = 0;
+      z = 0;
+      theta = 0;
+      img = document.getElementById("video");
+      //img.src = "http://172.16.115.147:8080/stream?topic=/ardrone/image_raw"
+
+      img.src = "http://192.166.253.25:8080/stream?topic=/gscam/image_raw"
+      connection = new ros.Connection("ws://192.166.253.25:9090");
+
+      connection.setOnClose(function (e) {});
+      connection.setOnError(function (e) {});
+      connection.setOnOpen(function (e) {
+        document.addEventListener('keydown', function (e) {
+          handleKey(e.keyCode, true);
+        }, true);
+        document.addEventListener('keyup', function (e) {
+          handleKey(e.keyCode, false);
+        }, true);
+      });
+    }
+        </script>
+      </head>
+    <body onload="main();">
+    <center>
+<!--
+      <img id="video" src="http://172.16.115.147:8080/stream?topic=/ardrone/image_raw">
+-->
+      <img id="video" src="http://172.16.115.147:8080/stream?topic=/gscam/image_raw">
+      <p>Commands:</p>
+      <hr>
+      <table>
+	<tbody><tr>
+	  <td></td><td><input type="button" value="Takeoff" onmousedown="handleKey(36, true);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+	<tr>
+	  <td></td><td><input type="button" value="Land" onmousedown="handleKey(35, true);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+	<tr>
+	  <td></td><td><input type="button" value="Forward" onmousedown="handleKey(38, true);" onmouseup="handleKey(38, false);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+	<tr>
+	  <td><input type="button" value="Turn Left" onmousedown="handleKey(37, true);" onmouseup="handleKey(37, false);" style="height:40px; width:100px"></td><td></td><td><input type="button" value="Turn Right" onmousedown="handleKey(39, true);" onmouseup="handleKey(39, false);" style="height:40px; width:100px"></td>
+	</tr>
+	<tr>
+	  <td></td><td><input type="button" value="Reverse" onmousedown="handleKey(40, true);" onmouseup="handleKey(40, false);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+	<tr>
+	  <td></td><td><input type="button" value="Climb" onmousedown="handleKey(33, true);" onmouseup="handleKey(33, false);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+	<tr>
+	  <td><input type="button" value="Strafe Left" onmousedown="handleKey(90, true);" onmouseup="handleKey(90, false);" style="height:40px; width:100px"></td><td></td><td><input type="button" value="Strafe Right" onmousedown="handleKey(88, true);" onmouseup="handleKey(88, false);" style="height:40px; width:100px"></td>
+	</tr>
+	<tr>
+	  <td></td><td><input type="button" value="Descend" onmousedown="handleKey(34, true);" onmouseup="handleKey(34, false);" style="height:40px; width:100px"></td><td>
+	</td></tr>
+
+      </tbody></table>
+      <p>HOME: Takeoff<br>
+      END: Land<br>
+      PG UP: Climb<br>
+      PG DN: Descend<br>
+      UP ARROW: Go forward<br>
+      DOWN ARROW: Go backward<br>
+      LEFT ARROW: Turn left<br>
+      RIGHT ARROW: Turn right<br>
+      Z: Strafe left<br>
+      X: Strafe right<br></p>
+      <hr>
+</center>
+</body></html>

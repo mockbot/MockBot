@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O3 -DNDEBUG   -shared -Wl,-soname,libgtest.so -o /opt/ros/prog/MockBot/3rd/exploration/explore/lib/libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o -L/opt/ros/prog/MockBot/3rd/exploration/explore/build/gtest/src -lpthread -Wl,-rpath,/opt/ros/prog/MockBot/3rd/exploration/explore/build/gtest/src 

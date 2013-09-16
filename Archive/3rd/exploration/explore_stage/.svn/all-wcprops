@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/bosch-ros-pkg/code/!svn/ver/1136/trunk/stacks/exploration/explore_stage
+END
+explore_slam.launch
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/p/bosch-ros-pkg/code/!svn/ver/178/trunk/stacks/exploration/explore_stage/explore_slam.launch
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/bosch-ros-pkg/code/!svn/ver/1136/trunk/stacks/exploration/explore_stage/manifest.xml
+END
+move.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/bosch-ros-pkg/code/!svn/ver/910/trunk/stacks/exploration/explore_stage/move.xml
+END
+explore.launch
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/bosch-ros-pkg/code/!svn/ver/910/trunk/stacks/exploration/explore_stage/explore.launch
+END
+explore_slam.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/bosch-ros-pkg/code/!svn/ver/178/trunk/stacks/exploration/explore_stage/explore_slam.xml
+END
+explore.vcg
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/p/bosch-ros-pkg/code/!svn/ver/178/trunk/stacks/exploration/explore_stage/explore.vcg
+END
+explore.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/p/bosch-ros-pkg/code/!svn/ver/178/trunk/stacks/exploration/explore_stage/explore.xml
+END

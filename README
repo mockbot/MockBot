@@ -1,6 +1,7 @@
 Project: MockBot 2011.10.10
 MockBot1 Electric
 MockBot2 Groovy Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
+MockBot Hydro Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
 
 
 A homebrew robot system from scratch based on ros reusable modules.
@@ -13,22 +14,16 @@ Install ros at Ubuntu with standard debian methods
 NEW: Script for installation of complete ROS system from scratch
 
 1. install basic ubuntu system 
-2. install git. 
-   sudo apt-get install git
-3. checkout MockBot from github
-   sudo mkdir -p /opt/ros/prog
-   cd /opt/ros/prog
-   git clone https://github.com/mockbot/MockBot.git
-4. install complete ros-groovy-mockbot environment
-   cd MockBot/mockbot2
-   sudo ./install_ros_groovy.sh
+2. install complete ros-hydro-mockbot environment
+3. download install script from https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
+   sudo ./install_ros_dev.sh
 
 Ready!
 Enjoy the system :-)
 
 MockBot source at GitHub
 ------------------------
-https://github.com/mockbot/MockBot
+https://github.com/mockbot
 
 
 Read the following sources:

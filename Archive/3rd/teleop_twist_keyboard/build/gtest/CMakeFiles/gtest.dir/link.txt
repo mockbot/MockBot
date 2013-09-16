@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O2 -g   -shared -Wl,-soname,libgtest.so -o /opt/ros/prog/teleop_twist_keyboard/lib/libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o -L/opt/ros/prog/teleop_twist_keyboard/build/gtest/src -lpthread -Wl,-rpath,/opt/ros/prog/teleop_twist_keyboard/build/gtest/src 

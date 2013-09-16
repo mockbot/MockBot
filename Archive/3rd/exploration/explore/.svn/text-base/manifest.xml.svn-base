@@ -1,0 +1,23 @@
+<package>
+  <description brief="frontier based exploration">A node that provides frontier based exploration.</description>
+  <author>Charles DuHadway (maintained by Benjamin Pitzer)</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/explore</url>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="costmap_2d"/>
+  <depend package="actionlib"/>
+  <depend package="move_base_msgs"/>
+  <depend package="tf"/>
+  <depend package="roslib"/>
+  <depend package="navfn"/>
+  <depend package="visualization_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  
+  <export>
+  <cpp cflags="-I${prefix}/include `rosboost-cfg --cflags`" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib `rosboost-cfg --lflags thread` -lexplore"/>
+  </export>
+  
+</package>

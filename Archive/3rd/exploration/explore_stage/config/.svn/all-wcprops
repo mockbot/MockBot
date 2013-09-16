@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/bosch-ros-pkg/code/!svn/ver/910/trunk/stacks/exploration/explore_stage/config
+END
+costmap_common.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/p/bosch-ros-pkg/code/!svn/ver/910/trunk/stacks/exploration/explore_stage/config/costmap_common.yaml
+END
+footprint.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/p/bosch-ros-pkg/code/!svn/ver/910/trunk/stacks/exploration/explore_stage/config/footprint.yaml
+END

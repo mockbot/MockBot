@@ -1,0 +1,7 @@
+fix arduino name at /etc/udev/rules.d/
+rosserial_python bug: uses ttyUSB0
+
+add user ros to group dialout
+sudo adduser ros dialout
+
+

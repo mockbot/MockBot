@@ -1,0 +1,18 @@
+<package>
+  <description brief="MockBotVelocity2Servo">
+
+     MockBotVelocity2Servo
+
+  </description>
+  <author>Robot Operating System</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/MockBotVelocity2Servo</url>
+  <depend package="rospy"/>
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="rosserial_msgs"/>
+</package>
+
+
