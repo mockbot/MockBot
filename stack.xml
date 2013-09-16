@@ -1,9 +1,0 @@
-<stack>
-  <description brief="MockBot">MockBot</description>
-  <author>Maintained by xadmin</author>
-  <license>BSD</license>  
-  <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/MockBot</url>
-  <depend stack="ros" />
-
-</stack>
