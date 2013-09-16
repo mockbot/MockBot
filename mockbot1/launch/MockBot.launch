@@ -1,6 +1,0 @@
-<launch>
-<include file="launch/soundplay_node.launch" />
-<include file="launch/gpsd_client.launch" />
-<include file="launch/kinect.launch" />
-<include file="launch/arduino.launch" />
-</launch>

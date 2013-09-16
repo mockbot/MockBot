@@ -1,5 +1,0 @@
-<launch>
-<param name="robot_description" 
-  command="$(find xacro)/xacro.py '$(find mockbot2)/urdf/mockbot.urdf.xacro'" />
-</launch>
-
