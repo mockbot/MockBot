@@ -1,0 +1,31 @@
+<launch>
+<!-- Description: MockBot for ROS Hydro and Ubuntu 12.04 LTS -->
+
+
+  <node name="audio_play" pkg="audio_play" type="audio_play" output="screen">
+    <param name="dst" value="alsasink"/>
+  </node>
+
+  <include file = "$(find sound_play)/soundplay_node.launch" />
+
+  <node name="kinect_aux" pkg="mockbot" type="kinect_aux_node">
+  </node>
+
+  <include file = "$(find openni_launch)/launch/openni.launch" />
+  
+  <node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server">
+  </node>
+
+  <include file = "$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
+    <param name="~port" value="/dev/ttyUSB0" />
+    <param name="~baud" value="57600" />
+  </node>
+
+  <node name="base_controller" pkg="mockbot" type="base_controller.py" >
+    <param name = "option" value="debug" />
+  </node>
+
+</launch>
+
