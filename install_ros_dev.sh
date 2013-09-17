@@ -8,7 +8,6 @@ fi
 export DISTRO=$1
 echo Install and setup ROS $DISTRO for USER $SUDO_USER 
 
-exit
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -56,7 +55,7 @@ echo Adding additional packages
 sudo apt-get install ros-$DISTRO-audio-common ros-$DISTRO-openni-launch ros-$DISTRO-openni-tracker ros-$DISTRO-rosserial-arduino ros-$DISTRO-rosserial-python ros-$DISTRO-rosbridge-suite ros-$DISTRO-mjpeg-server ros-$DISTRO-mjpegcanvasjs ros-$DISTRO-tf2-web-republisher
 
 sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql
-sudo apt-get install ros-$DISTRO-freiburg-tools ros-$DISTRO-octomap-mapping
+#sudo apt-get install ros-$DISTRO-freiburg-tools ros-$DISTRO-octomap-mapping
 sudo apt-get install ros-$DISTRO-hector-slam ros-$DISTRO-hector-models ros-$DISTRO-hector-worldmodel
 
 sudo apt-get install nut python-nut
