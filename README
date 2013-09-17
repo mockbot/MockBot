@@ -13,13 +13,12 @@ Install ros at Ubuntu with standard debian methods
 
 NEW: Script for installation of complete ROS system from scratch
 
-1. install basic ubuntu system 
-2. install complete ros-hydro-mockbot environment
-3. download install script from https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
-   sudo ./install_ros_dev.sh
+1. install basic ubuntu (e.g. Ubuntu Studio LTS 12.04, low latency kernel !!!)
+2. download install script from https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
+3. sudo ./install_ros_dev.sh hydro
 
 Ready!
-Enjoy the system :-)
+Enjoy the ros system :-)
 
 MockBot source at GitHub
 ------------------------
@@ -35,13 +34,14 @@ MockBot Features:
 
 Modules:
 ========
-Sound
+Audio Soundplay
 Openni (kinect)
-Arduino (servos and analog ports)
+Arduino (2 servos and 6 analog input ports)
+SLAM
 
 http://robotwebtools.org/
 MJpegserver and RosBridge
-RMS
+RMS (not finished)
 
 Hardware:
 =========
@@ -49,6 +49,6 @@ see SPEC directory
 
 Changes:
 Current ATOM CPU is too slow for SLAM and more.
-I've changed to Intel NUK i3 CPU, 8GB memory and 64GB SSD
+I've changed to Intel NUC i3 CPU, 8GB memory and 64GB SSD
 It's amazing !!!
 
