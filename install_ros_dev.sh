@@ -56,7 +56,7 @@ sudo apt-get install ros-$DISTRO-audio-common ros-$DISTRO-openni-launch ros-$DIS
 
 sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql
 #sudo apt-get install ros-$DISTRO-freiburg-tools ros-$DISTRO-octomap-mapping
-sudo apt-get install ros-$DISTRO-hector-slam ros-$DISTRO-hector-models ros-$DISTRO-hector-worldmodel
+sudo apt-get install ros-$DISTRO-hector-slam ros-$DISTRO-hector-models ros-$DISTRO-hector-worldmodel ros-hydro-pocketsphinx 
 
 sudo apt-get install nut python-nut
 
