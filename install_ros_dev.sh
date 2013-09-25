@@ -5,9 +5,9 @@ if [ "$1" == "" ] ; then
 	exit
 fi
 
+export OPTION="--yes"
 export DISTRO=$1
 echo Install and setup ROS $DISTRO for USER $SUDO_USER 
-
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -17,8 +17,9 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo Setup some usefull system utils
-sudo apt-get install ssh htop iptraf bacula-fd flite mosh screen
-sudo apt-get install ros-$DISTRO-desktop-full
+sudo apt-get $OPTION install ssh htop iptraf bacula-fd flite mosh screen apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql nut python-nut
+
+sudo apt-get $OPTION install ros-$DISTRO-desktop-full ros-$DISTRO-audio-common ros-$DISTRO-openni-launch ros-$DISTRO-openni-tracker ros-$DISTRO-rosserial-arduino ros-$DISTRO-rosserial-python ros-$DISTRO-rosbridge-suite ros-$DISTRO-mjpeg-server ros-$DISTRO-mjpegcanvasjs ros-$DISTRO-tf2-web-republisher ros-$DISTRO-imu-sensor-controller ros-$DISTRO-imu-compass ros-$DISTRO-hector-slam ros-$DISTRO-hector-models ros-$DISTRO-hector-worldmodel ros-$DISTRO-pocketsphinx
 
 sudo rosdep init
 rosdep update
@@ -49,16 +50,8 @@ else
 	echo ROS_PACKAGE_PATH OK
 fi
 
-sudo apt-get install python-rosinstall
+sudo apt-get $OPTION install python-rosinstall
 
-echo Adding additional packages
-sudo apt-get install ros-$DISTRO-audio-common ros-$DISTRO-openni-launch ros-$DISTRO-openni-tracker ros-$DISTRO-rosserial-arduino ros-$DISTRO-rosserial-python ros-$DISTRO-rosbridge-suite ros-$DISTRO-mjpeg-server ros-$DISTRO-mjpegcanvasjs ros-$DISTRO-tf2-web-republisher
-
-sudo apt-get install apache2 libapache2-mod-php5 php5-curl mysql-server php5-mysql
-#sudo apt-get install ros-$DISTRO-freiburg-tools ros-$DISTRO-octomap-mapping
-sudo apt-get install ros-$DISTRO-hector-slam ros-$DISTRO-hector-models ros-$DISTRO-hector-worldmodel ros-hydro-pocketsphinx 
-
-sudo apt-get install nut python-nut
 
 echo set permissions for user $SUDO_USER
 sudo chmod -R 777 $HOME/.ros
@@ -78,3 +71,5 @@ fi
 
 
 echo "Have fun"
+
+
