@@ -1,8 +1,8 @@
 <launch>
-    <node name="stage" pkg="stage" type="stageros" 
-          args="$(find mockbot2)/simulator/store.world"/>
+    <node name="stageros" pkg="stage_ros" type="stageros" 
+          args="$(find mockbot)/simulator/store.world"/>
     <node name="slam" pkg="gmapping" type="slam_gmapping">
         <remap from="scan" to="base_scan"/>
     </node>
-    <node name="wallfollower" pkg="mockbot2" type="wallfollower.py"/>
+    <node name="wallfollower" pkg="mockbot" type="wallfollower.py"/>
 </launch>
