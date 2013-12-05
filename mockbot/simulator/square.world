@@ -17,6 +17,8 @@ define mockbot position
   origin [-0.05 0 0 0]
   gui_nose 1
   drive "diff"
+  localization "gps"
+  #localization_origin [ 0 0 0 0 ]
   rangesensor(pose [ 0.030 0.000 0 0.000 ])
 )
 
