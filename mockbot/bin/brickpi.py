@@ -17,15 +17,31 @@ from geometry_msgs.msg import Twist
 #from nav_msgs.msg import *
 
 #Model dependend settings
+PI=3.141
+ROBOT_WIDTH=0.16
+WHEEL_DIAMETER=0.055
+WHEEL_RADIUS=WHEEL_DIAMETER/2
+WHEEL_PERIMETER=2*PI*WHEEL_RADIUS
 
-ROBOT_WIDTH=0.18
+#RPM dependant from voltage without load
+#9.0V = 120 RPM
+#7.5V = 80 RPM
+# with load 60-80 rpm is a good average
+MAX_RPM=60.0
+RPS=MAX_RPM/60.0
+
+MPS=RPS*WHEEL_PERIMETER
+
+PWRDIV=1000*RPS
+
+rospy.loginfo("PWRDIV:"+str(PWRDIV))
+
 RF_WHEEL=PORT_A
 LF_WHEEL=PORT_D
 
 RB_WHEEL=PORT_B
 LB_WHEEL=PORT_C
 
-POWERMULTIPLY=100
 FWDIR=-1
 
 BrickPiSetup()
@@ -44,23 +60,26 @@ def cmd_vel_callback(cmd_vel):
     right_speed_out = cmd_vel.linear.x + cmd_vel.angular.z*ROBOT_WIDTH/2
     v = cmd_vel.linear.x        # speed m/s
     theta = cmd_vel.angular.z      # angle rad/s
-    rospy.loginfo("VEL_CMD: " + str(v) + "," + str(theta))
+    rospy.loginfo("VEL_CMD_CB: v:" + str(v) + ", theta:" + str(theta))
     motor_control(left_speed_out, right_speed_out)
-    rospy.loginfo("LSPEED:"+ str(left_speed_out) + " RSPEED:" + str(right_speed_out))
 
 def vel_cmd_listener():
     rospy.Subscriber("cmd_vel", Twist, cmd_vel_callback)
 
 def motor_control(left_speed_out,right_speed_out):
     rospy.loginfo("LSPEED:"+ str(left_speed_out) + " RSPEED:" + str(right_speed_out))
-    print("LSPEED:"+ str(left_speed_out) + " RSPEED:" + str(right_speed_out))
-    BrickPi.MotorSpeed[RF_WHEEL] = int(-right_speed_out*POWERMULTIPLY)
-    BrickPi.MotorSpeed[LF_WHEEL] = int(-left_speed_out*POWERMULTIPLY)
-    BrickPi.MotorSpeed[RB_WHEEL] = int(right_speed_out*POWERMULTIPLY)
-    BrickPi.MotorSpeed[LB_WHEEL] = int(left_speed_out*POWERMULTIPLY)
+    rospy.loginfo("LSPEED:"+ str(left_speed_out) + " RSPEED:" + str(right_speed_out))
+    BrickPi.MotorSpeed[RF_WHEEL] = int(-right_speed_out*PWRDIV)
+    rospy.loginfo("RF:"+str(BrickPi.MotorSpeed[RF_WHEEL]))
+    BrickPi.MotorSpeed[LF_WHEEL] = int(-left_speed_out*PWRDIV)
+    rospy.loginfo("LF:"+str(BrickPi.MotorSpeed[LF_WHEEL]))
+    BrickPi.MotorSpeed[RB_WHEEL] = int(right_speed_out*PWRDIV)
+    rospy.loginfo("RB:"+str(BrickPi.MotorSpeed[RB_WHEEL]))
+    BrickPi.MotorSpeed[LB_WHEEL] = int(left_speed_out*PWRDIV)
+    rospy.loginfo("LB:"+str(BrickPi.MotorSpeed[LB_WHEEL]))
     BrickPiUpdateValues()
     time.sleep(.01)
-    scan_publisher()
+    #scan_publisher()
 
 def scan_publisher():
     result = BrickPiUpdateValues()
@@ -69,12 +88,14 @@ def scan_publisher():
 	range = BrickPi.Sensor[PORT_1] 
         us = rospy.Publisher('scan', UInt16)
         us.publish(UInt16(range))
+	print ("US: range=" + str(range) + " m")
     time.sleep(.01)
 
 if __name__ == '__main__':
     try:
     	rospy.init_node('MockBotBrickPiBaseController')
 	vel_cmd_listener()
+	#scan_publisher()
     	rospy.spin()
     except rospy.ROSInterruptException: pass
 
