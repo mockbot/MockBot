@@ -1,5 +1,5 @@
 <launch>
-<node name="brickpi" pkg="mockbot" type="brickpi.py" >
+<node name="brickpi" pkg="mockbot" type="brickpi.py" output="screen">
 	<param name = "option" value="test" />
 </node>
 </launch>
