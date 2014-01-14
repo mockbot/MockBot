@@ -27,7 +27,7 @@ WHEEL_PERIMETER=2*PI*WHEEL_RADIUS
 #9.0V = 120 RPM
 #7.5V = 80 RPM
 # with load 60-80 rpm is a good average
-MAX_RPM=60.0
+MAX_RPM=80.0
 RPS=MAX_RPM/60.0
 
 MPS=RPS*WHEEL_PERIMETER
@@ -79,23 +79,21 @@ def motor_control(left_speed_out,right_speed_out):
     rospy.loginfo("LB:"+str(BrickPi.MotorSpeed[LB_WHEEL]))
     BrickPiUpdateValues()
     time.sleep(.01)
-    #scan_publisher()
+    scan_publisher()
 
 def scan_publisher():
     result = BrickPiUpdateValues()
     if not result :
-        print BrickPi.Sensor[PORT_1]
 	range = BrickPi.Sensor[PORT_1] 
         us = rospy.Publisher('scan', UInt16)
         us.publish(UInt16(range))
-	print ("US: range=" + str(range) + " m")
-    time.sleep(.01)
+	rospy.loginfo ("SCAN:" + str(range))
 
 if __name__ == '__main__':
     try:
     	rospy.init_node('MockBotBrickPiBaseController')
 	vel_cmd_listener()
-	#scan_publisher()
+	time.sleep(.01)
     	rospy.spin()
     except rospy.ROSInterruptException: pass
 
