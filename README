@@ -2,6 +2,7 @@ Project: MockBot 2011.10.10
 MockBot1 Electric
 MockBot2 Groovy Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
 MockBot Hydro Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
+MockBot Groovy Debian Wheezy Raspberry Pi BrickPi Lego Sensors and Motors
 
 
 A homebrew robot system from scratch based on ros reusable modules.

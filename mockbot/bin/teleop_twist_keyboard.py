@@ -49,7 +49,7 @@ def getKey():
 	termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
 	return key
 
-speed = .5
+speed = .1
 turn = 1
 
 def vels(speed,turn):
