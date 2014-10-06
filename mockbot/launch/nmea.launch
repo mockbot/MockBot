@@ -1,0 +1,12 @@
+<launch>
+  <node name="nmea_serial_driver" pkg="nmea_navsat_driver" type="nmea_serial_driver">
+    <param name="port" value="/dev/rfcomm0" />
+    <param name="baud" value="4800" />
+    <param name="frame_id" value="gps" />
+  </node>
+</launch>
+
+
+
+
+
