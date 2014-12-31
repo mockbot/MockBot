@@ -1,0 +1,8 @@
+<launch>
+<node name="servo_s12" pkg="rosserial_python" type="serial_node.py" >
+		<param name = "port" value="/dev/ttyUSB0" />
+		<param name = "baud" value="57600" />
+	</node>
+<node name="twist_s12" pkg="mockbot" type="arduino_controller_twist_s12.py"/>
+</launch>
+

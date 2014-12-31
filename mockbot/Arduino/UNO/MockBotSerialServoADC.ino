@@ -30,7 +30,9 @@
 #include <Servo.h> 
 #include <ros.h>
 #include <std_msgs/UInt16.h>
+/*
 #include <rosserial_arduino/Adc.h>
+*/
 
 Servo servo1, servo2;
 
@@ -48,8 +50,10 @@ ros::NodeHandle nh;
 ros::Subscriber <std_msgs::UInt16> sub1("/MockBot/servo1", ROS_CALLBACK1);
 ros::Subscriber <std_msgs::UInt16> sub2("MockBot/servo2", ROS_CALLBACK2);
 
+/*
 rosserial_arduino::Adc adc_msg;
 ros::Publisher pub("/MockBot/adc", &adc_msg);
+*/
 
 void setup(){
   pinMode(13, OUTPUT);
@@ -57,12 +61,16 @@ void setup(){
   nh.initNode();
   nh.subscribe(sub1);
   nh.subscribe(sub2);
+
+/*
   nh.advertise(pub);
+*/
   
   servo1.attach(9); //attach it to pin 9
   servo2.attach(10); //attach it to pin 10
 }
 
+/*
 int averageAnalog(int pin){
   int v=0;
   for(int i=0; i<4; i++) v+= analogRead(pin);
@@ -70,8 +78,11 @@ int averageAnalog(int pin){
 }
 
 long adc_timer;
+*/
 
 void loop(){
+
+/*
   adc_msg.adc0 = averageAnalog(0);
   adc_msg.adc1 = averageAnalog(1);
   adc_msg.adc2 = averageAnalog(2);
@@ -80,9 +91,12 @@ void loop(){
   adc_msg.adc5 = averageAnalog(5);
 
   pub.publish(&adc_msg);
+*/
 
   nh.spinOnce();
+/*
   delay(1);
+*/
 }
 
 

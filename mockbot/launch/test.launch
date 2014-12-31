@@ -5,5 +5,5 @@
 	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
 		<remap from="image" to="/camera/depth/image_raw"/>
 	</node>
-	<node name="PyMataMockbot" pkg="mockbot" type="pymata_move_base.py" />
+	<node name="PyMataMockbot" pkg="mockbot" type="pymata_move_base.py" output="screen" />
 </launch>

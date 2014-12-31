@@ -1,8 +1,24 @@
 <launch>
+	<!-- start rosserial arduino s12 controller -->
+	<include file="$(find mockbot)/launch/arduino_s12.launch"/>
+	<!-- start twist cmd/vel mapper for servo1/servo2 -->
+	<node name="twist_s12" pkg="mockbot" type="arduino_controller_twist_s12.py" />
+
+	<!-- start rosbridge -->
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+
+	<!-- start kinect1 freenect -->
 	<include file="$(find freenect_launch)/launch/freenect.launch"/>
+
+	<!-- start video server -->	
 	<node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server" />
+
+	<!-- start audio server -->
+	<node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
+
+	<!-- start pcl to laser mapper -->
 	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
 		<remap from="image" to="/camera/depth/image_raw"/>
 	</node>
+
 </launch>
