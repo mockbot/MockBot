@@ -1,9 +1,8 @@
 Project: MockBot 2011.10.10
 MockBot1 Electric
 MockBot2 Groovy Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
-MockBot Hydro Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
-MockBot Groovy Debian Wheezy Raspberry Pi BrickPi Lego Sensors and Motors
-
+MockBot Indigo Ubuntu 14.04 LTS Ubuntu Studio prefered (low latency kernel)
+MockBot Groovy/Indigo Debian Wheezy Raspberry Pi BrickPi Lego Sensors and Motors
 
 A homebrew robot system from scratch based on ros reusable modules.
 
@@ -14,9 +13,9 @@ Install ros at Ubuntu with standard debian methods
 
 NEW: Script for installation of complete ROS system from scratch
 
-1. install basic ubuntu (e.g. Ubuntu Studio LTS 12.04, low latency kernel !!!)
+1. install basic ubuntu (e.g. Ubuntu Studio LTS 14.04, low latency kernel !!!)
 2. download install script from https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
-3. sudo ./install_ros_dev.sh hydro
+3. sudo ./install_ros_dev.sh distro
 
 Ready!
 Enjoy the ros system :-)
@@ -42,7 +41,6 @@ SLAM
 
 http://robotwebtools.org/
 MJpegserver and RosBridge
-RMS (not finished)
 
 Hardware:
 =========
@@ -51,5 +49,5 @@ see SPEC directory
 Changes:
 Current ATOM CPU is too slow for SLAM and more.
 I've changed to Intel NUC i3 CPU, 8GB memory and 64GB SSD
+New tests with Odroid C1 started 
 It's amazing !!!
-
