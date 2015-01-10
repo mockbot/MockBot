@@ -7,11 +7,12 @@
 	<!-- start rosbridge -->
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
 
-	<!-- start kinect1 freenect -->
+	<!-- start kinect1 freenect depth_registration:=true -->
 	<include file="$(find freenect_launch)/launch/freenect.launch"/>
 
 	<!-- start video server -->	
-	<node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server" />
+	<!--node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server" /-->
+	<node name="web_video_server" pkg="web_video_server" type="web_video_server" />
 
 	<!-- start audio server -->
 	<node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"/>
