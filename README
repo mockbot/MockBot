@@ -1,8 +1,12 @@
-Project: MockBot 2011.10.10
+Project: MockBot 2011.10.10-2015.01.12 Heavily under construction
+
+History:
 MockBot1 Electric
 MockBot2 Groovy Ubuntu 12.04 LTS Ubuntu Studio prefered (low latency kernel)
 MockBot Indigo Ubuntu 14.04 LTS Ubuntu Studio prefered (low latency kernel)
 MockBot Groovy/Indigo Debian Wheezy Raspberry Pi BrickPi Lego Sensors and Motors
+
+Abstract:
 
 A homebrew robot system from scratch based on ros reusable modules.
 
@@ -40,7 +44,7 @@ Arduino (2 servos and 6 analog input ports)
 SLAM
 
 http://robotwebtools.org/
-MJpegserver and RosBridge
+Video_web_server and RosBridge
 
 Hardware:
 =========
