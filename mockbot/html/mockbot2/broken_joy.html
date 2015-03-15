@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> Virtual Joystick </title>
+   </head>
+   <body bgcolor="#000000">
+	<center>
+      <div id="Info1" style="position:fixed; left:1%; top:1%; color:grey;">
+         X
+      </div>
+
+      <div id="Info2" style="position:fixed; left:1%; top:5%; color:grey;">
+         Y
+      </div>
+
+<img src="http://192.166.253.7:8080/stream?topic=/image_raw">
+
+      <script src="http://threejs.org/build/three.min.js"></script>
+      <script src="http://jeromeetienne.github.io/threex.keyboardstate/threex.keyboardstate.js"></script>
+      <script src="./virtualjoystick.js"></script>
+      <script>
+var clock = new THREE.Clock();
+
+var keyboard = new THREEx.KeyboardState();
+var joystick = new VirtualJoystick({
+                      mouseSupport: true,
+		      stationaryBase: true,
+                      baseX: window.innerWidth/2,
+                      baseY: window.innerHeight/2,
+		      limitStickTravel: true,
+		      stickRadius: window.innerWidth/4,
+		      strokeStyle: 'red'
+                   });
+
+var Info1 = document.getElementById("Info1");
+var Info2 = document.getElementById("Info2");
+
+main_loop(); 
+
+function main_loop(){
+   frameTime = clock.getDelta();
+   
+   if( keyboard.pressed("D") ){
+ 	x = x + 60 * frameTime;
+   }
+   if( keyboard.pressed("A") ){
+ 	x = x - 60 * frameTime;
+   }
+   if( keyboard.pressed("W") ){
+ 	y = y + 60 * frameTime;
+   }
+   if( keyboard.pressed("S") ){
+ 	y = y - 60 * frameTime;
+   }
+
+   if( joystick.right() ){
+ 	x = x + 60 * frameTime;    
+   }
+   if( joystick.left() ){
+ 	x = x - 60 * frameTime;     
+   }
+   if( joystick.up() ){
+ 	y = y + 60 * frameTime;       
+   }
+   if( joystick.down() ){
+ 	y = y - 60 * frameTime;
+   }
+/*
+   Info1.innerHTML = "X: " + x + "units";	
+   Info2.innerHTML = "Y: " + y + "units"; 
+*/
+	document.write("Debug: X"+x+" Y:"+y+"<br>");
+}
+      </script>     
+   </body>
+</html>
+
+
