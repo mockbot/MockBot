@@ -39,96 +39,122 @@
 		<div id="container"></div>
 		<div id="info">
 			<center>
+			<table border=1>
+			<tr><td>
+			<center>
 			<h3>MockBot Virtual Teleop</h3>
 			<span id="result"></span>
 			<br>
-			<img src="http://192.166.253.7:8080/stream?topic=/image_raw&width=256&height=128"><br><br>
-			Touch the screen or use the mouse to move<br>
+			<script type="text/javascript"> 
+			var ip=location.host;
+			document.write("<img src=http://"+ip+":8080/stream?topic=/image_raw&width=256&height=128");
+			</script>
+			<br><br><br>
+			Touch the screen or use the mouse to move<br><br>
+			</center>
+			</td></tr>
+			</table>
 			</center>
 		</div>
-		<script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
-   7 <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+		<script type="text/javascript" src="./eventemitter2.min.js"></script>
+    		<script type="text/javascript" src="./roslib.min.js"></script>
 
-function ros_init() {
-    // Connecting to ROS.
-    var ip = location.host;
-    var ros = new ROSLIB.Ros({
-      url : 'ws://'+ip+':9090'
-});
+	<script src="./virtualjoystick.js"></script>
+	<script>
+    		var ip = location.host;
+    		var ros = new ROSLIB.Ros({
+      			url : 'ws://'+ip+':9090'
+		});
 
-  
-		<script src="./virtualjoystick.js"></script>
-		<script>
+  		ros.on('connection', function() {
+    			console.log('Connected to websocket server.');
+  		});
 
-    var ip = location.host;
-    var ros = new ROSLIB.Ros({
-      	url : 'ws://'+ip+':9090'
-	});
+  		ros.on('error', function(error) {
+    			console.log('Error connecting to websocket server: ', error);
+  		});
 
-  ros.on('connection', function() {
-    console.log('Connected to websocket server.');
-  });
+  		ros.on('close', function() {
+    			console.log('Connection to websocket server closed.');
+  		});
 
-  ros.on('error', function(error) {
-    console.log('Error connecting to websocket server: ', error);
-  });
+  		var cmdVel = new ROSLIB.Topic({
+    			ros : ros,
+    			name : '/cmd_vel',
+    			messageType : 'geometry_msgs/Twist'
+  		});
 
-  ros.on('close', function() {
-    console.log('Connection to websocket server closed.');
-  });
+  		var twist = new ROSLIB.Message({
+    			linear : {
+      				x : 0.0,
+      				y : 0.0,
+      				z : 0.0
+    			},
+    			angular : {
+      				x : 0.0,
+      				y : 0.0,
+      				z : 0.0
+    			}
+  		});
+               	cmdVel.publish(twist);
 
-
-  var cmdVel = new ROSLIB.Topic({
-    ros : ros,
-    name : '/cmd_vel',
-    messageType : 'geometry_msgs/Twist'
-  });
-
-  var twist = new ROSLIB.Message({
-    linear : {
-      x : 0.0,
-      y : 0.0,
-      z : 0.0
-    },
-    angular : {
-      x : 0.0,
-      y : 0.0,
-      z : 0.0
-    }
-  });
-
- cmdVel.publish(twist);
-
-
-	console.log("touchscreen is", VirtualJoystick.touchScreenAvailable() ? "available" : "not available");
+		console.log("touchscreen is", VirtualJoystick.touchScreenAvailable() ? "available" : "not available");
 	
-			var joystick	= new VirtualJoystick({
-				container	: document.getElementById('container'),
-				mouseSupport	: true,
-		      		stationaryBase: false,
-                      		baseX: window.innerWidth/2,
-                      		baseY: window.innerHeight/1.4,
-                      		limitStickTravel: true,
-                      		stickRadius: window.innerWidth/4,
-                      		strokeStyle: 'red'
+		var joystick	= new VirtualJoystick({
+			container	: document.getElementById('container'),
+			mouseSupport	: true,
+		      	stationaryBase: false,
+                      	baseX: window.innerWidth/2,
+                      	baseY: window.innerHeight/1.4,
+                      	limitStickTravel: true,
+                      	stickRadius: window.innerWidth/4,
+                      	strokeStyle: 'red'
+		});
 
-			});
-			joystick.addEventListener('touchStart', function(){
-				console.log('down')
-			})
-			joystick.addEventListener('touchEnd', function(){
-				console.log('up')
-			})
+		joystick.addEventListener('touchStart', function(){
+		})
+		joystick.addEventListener('touchEnd', function(){
+		})
 
-			setInterval(function(){
-				var outputEl	= document.getElementById('result');
-				outputEl.innerHTML	= '<b></b> '
-					+ ' dx:'+Math.round(joystick.deltaX())
-					+ ' dy:'+Math.round(joystick.deltaY())
-					+ (joystick.right()	? ' right'	: '')
-					+ (joystick.up()	? ' up'		: '')
-					+ (joystick.left()	? ' left'	: '')
-					+ (joystick.down()	? ' down' 	: '')	
+		setInterval(function(){
+			var outputEl	= document.getElementById('result');
+			var scale=100;
+			var maxspeed=2.0;
+			var X=Math.round(joystick.deltaY());
+			var Z=Math.round(joystick.deltaX());
+
+			// Convert to ROS coordinates
+			LinearX=(X/scale)*(-1);
+			AngularZ=(Z/scale)*(-1);
+
+			// Limit to max speed
+
+			if ( LinearX > maxspeed ){
+				LinearX = maxspeed;
+			}
+			if ( LinearX < -maxspeed ){
+				LinearX = -maxspeed;
+			}
+			if ( AngularZ > maxspeed ){
+				AngularZ = maxspeed;
+			}
+			if ( AngularZ < -maxspeed ){
+				AngularZ = -maxspeed;
+			}
+
+               		twist = new ROSLIB.Message({ "linear": { "x": LinearX, "y": 0, "z": 0 }, "angular": { "x": 0, "y": 0, "z": AngularZ } });
+
+			console.log('X:'+twist.linear.x+' Z:'+twist.angular.z);
+               		cmdVel.publish(twist);
+
+			outputEl.innerHTML	= '<b></b> '
+				+ ' dx:'+Math.round(joystick.deltaX())
+				+ ' dy:'+Math.round(joystick.deltaY())
+				+ (joystick.right()	? ' right'	: '')
+				+ (joystick.up()	? ' up'		: '')
+				+ (joystick.left()	? ' left'	: '')
+				+ (joystick.down()	? ' down' 	: '')	
+				+ ' <=> lx:'+LinearX+' az:'+AngularZ
 			}, 1/30 * 1000);
 		</script>
 	</body>
