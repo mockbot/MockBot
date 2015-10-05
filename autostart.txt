@@ -1,0 +1,37 @@
+README Robot Startup System Boot
+================================
+
+$sudo apt-get install daemontools
+
+create a file /etc/init/svscan.conf
+
+start on runlevel [2345]
+
+expect fork
+respawn
+exec svscanboot
+
+$sudo mkdir -p /etc/service/mockbot
+
+create a file /etc/service/mockbot/run
+
+#!/bin/bash
+export USER=ros
+export HOME=/home/$USER
+source /opt/ros/indigo/setup.bash
+exec /opt/ros/indigo/bin/roslaunch mockbot mockbot.launch
+
+Check service
+
+$sudo service svscan status
+
+svscan start/running, process 835
+
+$sudo svstat /etc/service/mockbot
+
+/etc/service/mockbot: up (pid 849) 1443043529 seconds
+
+Now, your ros launchfile will be startet at system boot.
+
+Not perfect as robot_upstart, but it works ;-)
+
