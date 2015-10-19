@@ -1,0 +1,10 @@
+<launch>
+  <!-- Turtlebot Driver -->
+  <node pkg="create_node" type="turtlebot_node.py" name="turtlebot_node" respawn="true" args="--respawnable">
+    <param name="robot_type" value="roomba" />
+    <param name="has_gyro" value="false" />
+    <param name="bonus" value="false" />
+    <param name="update_rate" value="30.0" />
+    <param name="port" value="/dev/ROOMBA" />
+  </node>
+</launch>
