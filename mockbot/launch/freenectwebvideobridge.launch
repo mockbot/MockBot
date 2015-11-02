@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+	<include file="$(find freenect_launch)/launch/freenect.launch"/>
+	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
+		<remap from="image" to="/camera/depth/image_raw"/>
+	</node>
+	<node name="web_video_server" pkg="web_video_server" type="web_video_server" />
+</launch>
