@@ -1,3 +1,5 @@
-#SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0001", ATTRS{serial}=="649323438383512122B1", iMODE="0666", SYMLINK+="UPS"
-SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0001", ATTRS{serial}=="649323438383512122B1", MODE="0666", SYMLINK+="IMU"
+#SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0001", ATTRS{serial}=="649323438383512122B1", MODE="0666", SYMLINK+="ALIAS"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A9KFRDT1", MODE="0666", SYMLINK+="IMU"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A9SN7T1P", MODE="0666", SYMLINK+="ROOMBA"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666", SYMLINK+="VMON"
 
