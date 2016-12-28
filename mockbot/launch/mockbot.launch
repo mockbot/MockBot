@@ -4,7 +4,8 @@
 	<node name="web_video_server" pkg="web_video_server" type="web_video_server" />
 
 	<!-- CAM Driver -->
-	<node name="uvc_camera" pkg="uvc_camera" type="uvc_camera_node" />
+	<!-- node name="uvc_camera" pkg="uvc_camera" type="uvc_camera_node" / -->
+	<include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch"/>
 
 	<!-- PLAY ANY AUDIO -->
 	<!-- node name="audio_play" pkg="audio_play" type="audio_play" / -->
@@ -17,6 +18,6 @@
     		<rosparam file="$(find razor_imu_9dof)/config/my_razor.yaml" command="load"/>
   	</node>
 	<!-- roomba -->
-	<include file="$(find mockbot)/launch/roomba.launch"/>
+	<!-- include file="$(find mockbot)/launch/roomba.launch"/ -->
 </launch>
 

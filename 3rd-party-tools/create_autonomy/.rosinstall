@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /opt/ros/prog/MockBot/3rd-party-tools/create_autonomy/setup.sh

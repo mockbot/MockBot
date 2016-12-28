@@ -1,0 +1,8 @@
+prefix=/opt/ros/prog/MockBot/3rd-party-tools
+
+Name: ca_msgs
+Description: Description of ca_msgs
+Version: 1.2.0
+Cflags: -I/opt/ros/prog/MockBot/3rd-party-tools/include
+Libs: -L/opt/ros/prog/MockBot/3rd-party-tools/lib 
+Requires: message_runtime std_msgs

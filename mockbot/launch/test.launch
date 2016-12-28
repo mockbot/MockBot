@@ -1,9 +1,5 @@
 <launch>
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
-	<include file="$(find freenect_launch)/launch/freenect.launch"/>
 	<node name="mjpeg_server" pkg="mjpeg_server" type="mjpeg_server" />
-	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
-		<remap from="image" to="/camera/depth/image_raw"/>
-	</node>
-	<node name="PyMataMockbot" pkg="mockbot" type="pymata_move_base.py" output="screen" />
+	<node name="PyMataDrive" pkg="mockbot" type="pymata_move_base.py" output="screen" />
 </launch>

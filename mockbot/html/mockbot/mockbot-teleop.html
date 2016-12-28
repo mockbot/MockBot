@@ -49,12 +49,14 @@
 				<tr>
 					<td>
 						<center>
-							<h3>MockBot Virtual Teleop</h3>
+							<h3>MockBot Virtual Teleop Frontview</h3>
 							<span id="result"></span>
 							<br>
 							<script type="text/javascript">
 								var ip = location.host;
-								document.write("<img src=http://" + ip + ":8080/stream?topic=/image_raw&width=256&height=128");
+								document.write("<img src=http://" + ip + ":8080/stream?topic=/camera/rgb/image_raw&width=256&height=128");
+								//document.write("<img src=http://" + ip + ":8080/stream?topic=/camera/rgb/image_raw&width=256&height=128");
+								//document.write("<img src=http://" + ip + ":8080/stream?topic=/camera/ir/image_raw&width=256&height=128");
 							</script>
 							<br>
 							<br>

@@ -13,7 +13,7 @@ from geometry_msgs.msg import Twist
 #Model dependend settings
 PI=3.141
 ROBOT_WIDTH=0.45
-WHEEL_DIAMETER=0.40
+WHEEL_DIAMETER=0.26
 WHEEL_RADIUS=WHEEL_DIAMETER/2
 WHEEL_PERIMETER=2*PI*WHEEL_RADIUS
 
@@ -29,7 +29,7 @@ deg_mid = 90
 deg_step = 10
 
 # ARDUINO PORT
-firmata = PyMata("/dev/ttyACM0")
+firmata = PyMata("/dev/DRIVE")
 
 firmata.refresh_report_firmware()
 print firmata.get_firmata_firmware_version()
@@ -76,8 +76,12 @@ def init_servo_back():
    time.sleep(1)
 
 def servo_move(servo,s_degree):
-   firmata.analog_write(servo, s_degree)
-   time.sleep(0.1)
+   min_degree=1
+   max_degree=179
+   if min_degree <= s_degree <= max_degree:
+        firmata.analog_write(servo, s_degree)
+   else:
+        print "Servo:"+str(servo)+" Degree:"+str(s_degree)+" OUT OF RANGE"
 
 def calibrate_servos():
    print "Calibrate Servos"
@@ -92,7 +96,7 @@ def toggle_led():
    firmata.digital_write(BOARD_LED, 0)
 
 init_servos()
-#calibrate_servos()
+calibrate_servos()
 
 #for deg in range(deg_min,deg_max,deg_step):
 #    print "Servo degree "+str(deg)
@@ -124,11 +128,11 @@ def vel_cmd_listener():
     rospy.Subscriber("cmd_vel", Twist, cmd_vel_callback)
 
 def motor_control(left_speed_out,right_speed_out):
-    rospy.loginfo("L_SPEED:"+ str(left_speed_out) + " R_SPEED:" + str(right_speed_out))
+    #rospy.loginfo("L_SPEED:"+ str(left_speed_out) + " R_SPEED:" + str(right_speed_out))
     #servo_move(SERVO1,int(-right_speed_out*PWRDIV))  
-    rospy.loginfo("servo_move(SERVO1,"+str(left_speed_out*PWRDIV)+")")
+    #rospy.loginfo("servo_move(SERVO1,"+str(left_speed_out*PWRDIV)+")")
     #servo_move(SERVO2,int(-left_speed_out*PWRDIV))
-    rospy.loginfo("servo_move(SERVO2,"+str(right_speed_out*PWRDIV)+")")
+    #rospy.loginfo("servo_move(SERVO2,"+str(right_speed_out*PWRDIV)+")")
     # Servo mapping for motorcontoller: 
     # 180 => full speed forward
     # 90 => STOP
@@ -140,11 +144,14 @@ def motor_control(left_speed_out,right_speed_out):
     ints1=int(s1*100+90)
     ints2=int(s2*100+90)
     rospy.loginfo("IntS1:"+ str(ints1) + " IntS2:" + str(ints2))
-
+    servo_move(SERVO1,int(ints1))
+    servo_move(SERVO2,int(ints2))
+    #servo_move(SERVO1,int(-right_speed_out*PWRDIV))  
+    #servo_move(SERVO2,int(-left_speed_out*PWRDIV))
 
 if __name__ == '__main__':
     try:
-        rospy.init_node('MockBotMoveBaseController')
+        rospy.init_node('MockBotPyMataMoveBaseController')
         vel_cmd_listener()
         time.sleep(.01)
         rospy.spin()

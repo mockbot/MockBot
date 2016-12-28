@@ -1,0 +1,8 @@
+prefix=/opt/ros/prog/MockBot/3rd-party-tools/create_autonomy
+
+Name: ca_driver
+Description: Description of ca_driver
+Version: 1.2.0
+Cflags: -I/opt/ros/prog/MockBot/3rd-party-tools/create_autonomy/include
+Libs: -L/opt/ros/prog/MockBot/3rd-party-tools/create_autonomy/lib -llibcreate
+Requires: roscpp std_msgs geometry_msgs nav_msgs sensor_msgs tf ca_msgs ca_description diagnostic_msgs diagnostic_updater

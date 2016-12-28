@@ -1,0 +1,24 @@
+<launch>
+	<!-- 2016 06 15 -->
+	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+	<node name="web_video_server" pkg="web_video_server" type="web_video_server" />
+
+	<!-- CAM Driver -->
+	<!-- node name="uvc_camera" pkg="uvc_camera" type="uvc_camera_node" / -->
+	<include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch"/>
+
+	<!-- PLAY ANY AUDIO -->
+	<!-- node name="audio_play" pkg="audio_play" type="audio_play" / -->
+	
+	<!-- PLAY TEXT from TOPIC -->
+	<node name="sound_play" pkg="sound_play" type="soundplay_node.py" />
+
+	<!-- IMU -->
+	<node pkg="razor_imu_9dof" type="imu_node.py" name="imu_node" output="screen">
+    		<rosparam file="$(find razor_imu_9dof)/config/my_razor.yaml" command="load"/>
+  	</node>
+
+	<!-- firmata pymata drive -->
+	<!-- node name="PyMataDrive" pkg="mockbot" type="pymata_move_base.py" output="screen" / -->
+</launch>
+

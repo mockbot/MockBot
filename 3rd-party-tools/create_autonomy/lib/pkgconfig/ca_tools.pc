@@ -1,0 +1,8 @@
+prefix=/opt/ros/prog/MockBot/3rd-party-tools/create_autonomy
+
+Name: ca_tools
+Description: Description of ca_tools
+Version: 1.2.0
+Cflags: 
+Libs: -L/opt/ros/prog/MockBot/3rd-party-tools/create_autonomy/lib 
+Requires: joy_teleop
