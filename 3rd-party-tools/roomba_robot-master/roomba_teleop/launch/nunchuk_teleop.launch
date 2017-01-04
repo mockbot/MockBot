@@ -1,0 +1,12 @@
+<launch>
+
+  <node pkg="joy" type="joy_node" name="joystick"/>
+
+  <node pkg="roomba_teleop" type="joystick_teleop_node" name="roomba_wiimote">
+    <param name="scale_angular" value="1.5"/>
+    <param name="scale_linear" value="0.5"/>
+    <remap from="teleop/cmd_vel" to="cmd_vel"/>
+    <remap from="joy" to="wiimote/nunchuk"/>
+  </node>
+
+</launch>

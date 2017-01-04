@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <name>lse_roomba_tf</name>
+<version>0.0.1</version>
+  <description>
+
+     Typical tf setups for the Erratics used in LSE. Includes setups with the Hokuyo laser and the LSE two nostril MOX nose.
+
+  </description>
+  <author>Gonçalo Cabrita and Pedro Sousa</author>
+  <maintainer email="bgouveia@gmail.com">Bruno Gouveia</maintainer>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/lse_roomba_tf_setup</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+ <run_depend>geometry_msgs</run_depend>
+
+<export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+
+</package>
+
+

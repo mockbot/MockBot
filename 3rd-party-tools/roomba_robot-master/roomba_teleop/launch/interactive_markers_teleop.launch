@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="roomba_teleop" type="interactive_markers_teleop_node" name="roomba_interactive_markers"  output="screen">
+	<remap from="teleop/cmd_vel" to="cmd_vel"/>
+  </node>
+
+</launch>

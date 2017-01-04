@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="roomba_teleop" type="keyboard_teleop_node" name="roomba_keyboard"  output="screen">
+    <param name="scale_linear" value="0.5" type="double"/>
+    <param name="scale_angular" value="1.5" type="double"/>
+    <remap from="teleop/cmd_vel" to="cmd_vel"/>
+  </node>
+
+</launch>

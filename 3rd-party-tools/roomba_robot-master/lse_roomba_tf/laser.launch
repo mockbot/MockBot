@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
+    <param name="frame_id" value="base_laser" />
+  </node>
+
+<!--  <node pkg="roomba_500_series" type="roomba560_node" name="roomba560_node" output="screen">
+  </node> -->
+
+  <node pkg="lse_roomba_tf" type="tf_broadcaster_laser" name="tf_broadcaster_laser" output="screen">
+  </node>
+</launch>

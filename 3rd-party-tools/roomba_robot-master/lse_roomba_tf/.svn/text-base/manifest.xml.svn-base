@@ -1,0 +1,17 @@
+<package>
+  <description brief="lse_roomba_tf_setup">
+
+     Typical tf setups for the Erratics used in LSE. Includes setups with the Hokuyo laser and the LSE two nostril MOX nose.
+
+  </description>
+  <author>Gonçalo Cabrita and Pedro Sousa</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/lse_roomba_tf_setup</url>
+  <depend package="roscpp"/>
+  <depend package="tf"/>
+  <depend package="geometry_msgs"/>
+
+</package>
+
+

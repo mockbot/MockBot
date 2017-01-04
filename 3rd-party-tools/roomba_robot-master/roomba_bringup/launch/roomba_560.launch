@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+	
+	<node name="roomba560_node" pkg="roomba_driver" type="roomba500_node" output="screen">
+		<param name="port" value="/dev/ttyUSB0" />
+
+		 <param name="use_bumpers" value="true" />
+		<param name="use_cliff_sensors" value="true" />
+		<param name="use_ir_receiver" value="true" />
+		<param name="use_wheel_drops" value="true" />
+		<param name="use_ir_sensors" value="true" />
+		<param name="use_brushes" value="true" />
+		<param name="use_leds" value="true" />
+		<param name="use_songs" value="true" />
+		<param name="use_seven_segment_display" value="true" />
+	</node>
+
+ 	 <param name="robot_description" command="$(find xacro)/xacro.py '$(find roomba_description)/urdf/roomba.urdf.xacro' color:=black" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+</launch>

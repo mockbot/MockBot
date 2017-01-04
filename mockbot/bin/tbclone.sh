@@ -1,0 +1,5 @@
+#!/bin/bash
+export TURTLEBOT_BASE=roomba
+export TURTLEBOT_STACKS=circle
+export TURTLEBOT_3D_SENSOR=r200
+export TURTLEBOT_SERIAL_PORT=/dev/ROOMBA

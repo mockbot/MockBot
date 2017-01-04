@@ -25,5 +25,12 @@
 	/ -->
 
 	<include file="$(find ca_driver)/launch/create_2.launch"/>
+
+        <!-- Laser SIM -->
+        <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
+                <remap from="image" to="/camera/depth/image_raw"/>
+        </node>
+
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping"/>
 </launch>
 
