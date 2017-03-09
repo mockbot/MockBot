@@ -1,0 +1,6 @@
+<launch>
+	<!-- tf2 web publisher for UI -->
+	<node name="tf2_webpublisher" pkg="tf2_web_publisher" type="tf2_web_republisher" output="screen" />
+
+</launch>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<robot name="mockturtlebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+ 
+  <!-- Included URDF/XACRO Files -->
+  <xacro:include filename="$(find mockbot)/urdf/materials.urdf.xacro" />
+  <xacro:include filename="$(find mockbot)/urdf/wheel.urdf.xacro" />
+  <xacro:include filename="$(find mockbot)/urdf/addons.urdf.xacro" />
+ 
+  <!-- PROPERTY LIST -->
+  <!--All units in m-kg-s-radians unit system -->
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+ 
+  <!-- Main Body-base -->
+  <xacro:property name="base_x_size" value="0.6" /> 
+  <xacro:property name="base_y_size" value="0.4" /> 
+  <xacro:property name="base_z_size" value="0.10" />
+  <xacro:property name="base_mass" value="10" /> <!-- in kg-->
+ 
+ 
+  <!-- BASE-FOOTPRINT -->
+  <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin -->
+  <link name="base_footprint">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <box size="0.001 0.001 0.001" />
+        </geometry>
+    </visual>
+  </link>
+ 
+  <joint name="base_footprint_joint" type="fixed">
+  <origin xyz="0 0 ${wheel_radius - base_z_origin_to_wheel_origin}" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+ 
+  <!-- BASE-LINK -->
+  <!--Actual body/chassis of the robot-->
+  <link name="base_link">    
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="${base_x_size} ${base_y_size} ${base_z_size}"/>
+      </geometry>
+      <material name="DarkGray" />
+    </visual>     
+  </link>
+
+  <!-- WHEELs -->
+  <wheel fb="front" lr="right" parent="base_link" translateX="1" translateY="-1" flipY="-1"/>
+  <wheel fb="front" lr="left" parent="base_link" translateX="1" translateY="1" flipY="-1"/>
+  <wheel fb="back" lr="right" parent="base_link" translateX="-1" translateY="-1" flipY="-1"/>
+  <wheel fb="back" lr="left" parent="base_link" translateX="-1" translateY="1" flipY="-1"/>
+ 
+  <axle fb="front" lr="right" parent="base_link" translateX="1" translateY="-1" flipY="-1"/>
+  <axle fb="front" lr="left" parent="base_link" translateX="1" translateY="1" flipY="-1"/>
+  <axle fb="back" lr="right" parent="base_link" translateX="-1" translateY="-1" flipY="-1"/>
+  <axle fb="back" lr="left" parent="base_link" translateX="-1" translateY="1" flipY="-1"/>
+
+  <addonbox xbox="1" ybox="1" zbox="1" parent="base_link"/>
+
+</robot>

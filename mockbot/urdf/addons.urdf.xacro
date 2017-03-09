@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot name="addons" xmlns:xacro="http://ros.org/wiki/xacro">
+ 
+  <!-- Addons -->
+  <xacro:property name="addon_parameter" value="0.10" /> 
+ 
+  <link name="top_link">
+    <visual>
+        <origin xyz="0 0 .1" rpy="0 0 0" /> 
+        <geometry>
+          <box size=".5 .4 .05" />
+        </geometry>
+        <material name="DarkGray" />
+      </visual>
+  </link>
+    <joint name="top_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="top_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <axis xyz="0 0 0" rpy="0 0 0" />
+      <limit effort="100" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+  <link name="tower_link">
+    <visual>
+        <origin xyz="0 0 .2" rpy="0 0 0" />
+        <geometry>
+          <box size="0.03 0.03 0.3" />
+        </geometry>
+        <material name="DarkGray" />
+      </visual>
+  </link>
+    <joint name="tower_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="tower_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <axis xyz="0 0 0" rpy="0 0 0" />
+      <limit effort="100" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+
+
+
+
+
+  <xacro:macro name="addonbox" params="xbox ybox zbox parent">
+    <link name="box_${xbox}_${ybox}_${zbox}_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" /> 
+        <geometry>
+          <box size="${xbox} ${ybox} ${zbox}" />
+        </geometry>
+        <material name="DarkGray" />
+      </visual>
+    </link>
+ 
+ 
+    <joint name="box_${xbox}_${ybox}_${zbox}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="box_${xbox}_${ybox}_${zbox}_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <axis xyz="0 0 0" rpy="0 0 0" />
+      <limit effort="100" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+  </xacro:macro>
+
+</robot>

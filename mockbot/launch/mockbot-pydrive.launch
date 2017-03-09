@@ -19,6 +19,28 @@
   	</node>
 
 	<!-- firmata pymata drive -->
-	<!-- node name="PyMataDrive" pkg="mockbot" type="pymata_move_base.py" output="screen" / -->
+	<node name="PyMataDrive" pkg="mockbot" type="pymata_move_base.py" output="screen" />
+
+	<!-- publisher for UI -->
+
+	<param name="robot_description" textfile="$(find mockbot)/urdf/mockturtlebot.urdf" />
+	<param name="use_gui" value="True"/>
+
+	<!--
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  	</node>
+	-->
+
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    		<param name="publish_frequency" type="double" value="30.0" />
+    		<!--param name="tf_prefix" type="string" value="" /-->
+	</node>
+
+	<node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher">
+  	</node>
+
+
+
+
 </launch>
 
