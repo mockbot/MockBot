@@ -64,23 +64,8 @@
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
-  <!-- 
-    These properties must be observed by any machine
-    that wants to be defined as a turtlebot. Refer
-    to the REP for more details.
-    
-    http://www.ros.org/reps/rep-0119.html
-   -->
-  <!-- Parametring the positions -->
   <!--
-  <xacro:property name="r200_cam_px" value="0.12" />
-  <xacro:property name="r200_cam_pz" value="0.1268" />
-  <xacro:property name="r200_cam_py" value="0.082"/>
-  -->
-  <!-- Also parameterised in part by the values in turtlebot_properties.urdf.xacro -->
-  <!--
-  Seems like this weird organization is required for move_base to work properly...
-  parent > camera_rgb_frame
+  <xacro:include filename="$(find mockbot)/urdf/r200.urdf.xacro" />
   -->
   <!-- in kg-->
   <!-- BASE-FOOTPRINT -->
@@ -115,7 +100,7 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.077" radius="0.02"/>
+        <cylinder length="0.077" radius="0.01"/>
       </geometry>
       <material name="Gray"/>
     </visual>
@@ -133,16 +118,15 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.075" radius="0.09"/>
+        <cylinder length="0.075" radius="0.08"/>
       </geometry>
       <material name="DarkGray"/>
     </visual>
   </link>
   <joint name="front_right_rim_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="front_right_axle"/>
     <child link="front_right_rim"/>
-    <origin rpy="0 0 0" xyz="0.15 -0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -158,10 +142,9 @@
     </visual>
   </link>
   <joint name="front_right_wheel_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="front_right_rim"/>
     <child link="front_right_wheel"/>
-    <origin rpy="0 0 0" xyz="0.15 -0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -172,7 +155,7 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.077" radius="0.02"/>
+        <cylinder length="0.077" radius="0.01"/>
       </geometry>
       <material name="Gray"/>
     </visual>
@@ -190,16 +173,15 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.075" radius="0.09"/>
+        <cylinder length="0.075" radius="0.08"/>
       </geometry>
       <material name="DarkGray"/>
     </visual>
   </link>
   <joint name="front_left_rim_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="front_left_axle"/>
     <child link="front_left_rim"/>
-    <origin rpy="0 0 0" xyz="0.15 0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -215,10 +197,9 @@
     </visual>
   </link>
   <joint name="front_left_wheel_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="front_left_rim"/>
     <child link="front_left_wheel"/>
-    <origin rpy="0 0 0" xyz="0.15 0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -229,7 +210,7 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.077" radius="0.02"/>
+        <cylinder length="0.077" radius="0.01"/>
       </geometry>
       <material name="Gray"/>
     </visual>
@@ -247,16 +228,15 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.075" radius="0.09"/>
+        <cylinder length="0.075" radius="0.08"/>
       </geometry>
       <material name="DarkGray"/>
     </visual>
   </link>
   <joint name="back_right_rim_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="back_right_axle"/>
     <child link="back_right_rim"/>
-    <origin rpy="0 0 0" xyz="-0.15 -0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -272,10 +252,9 @@
     </visual>
   </link>
   <joint name="back_right_wheel_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="back_right_rim"/>
     <child link="back_right_wheel"/>
-    <origin rpy="0 0 0" xyz="-0.15 -0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -286,7 +265,7 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.077" radius="0.02"/>
+        <cylinder length="0.077" radius="0.01"/>
       </geometry>
       <material name="Gray"/>
     </visual>
@@ -304,16 +283,15 @@
     <visual>
       <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.075" radius="0.09"/>
+        <cylinder length="0.075" radius="0.08"/>
       </geometry>
       <material name="DarkGray"/>
     </visual>
   </link>
   <joint name="back_left_rim_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="back_left_axle"/>
     <child link="back_left_rim"/>
-    <origin rpy="0 0 0" xyz="-0.15 0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -329,109 +307,86 @@
     </visual>
   </link>
   <joint name="back_left_wheel_joint" type="fixed">
-    <!-- parent link="${parent}"/-->
     <parent link="back_left_rim"/>
     <child link="back_left_wheel"/>
-    <origin rpy="0 0 0" xyz="-0.15 0.25 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="100" velocity="100"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
-  <!--
-    ==  RGB joints & links ==
-    -->
-  <joint name="camera_rgb_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="1.0088 0.8966 1.0483"/>
+  <joint name="r200_joint" type="fixed">
+    <!-- xacro:insert_block name="origin" /-->
     <parent link="base_link"/>
-    <child link="camera_rgb_frame"/>
+    <child link="r200_link"/>
   </joint>
-  <link name="camera_rgb_frame"/>
-  <joint name="camera_rgb_optical_joint" type="fixed">
-    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_rgb_optical_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_frame"/>
-  <!-- Placing the camera joint -->
-  <joint name="camera_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="1 1 1"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_link"/>
-  </joint>
-  <!-- Mounting the camera at the right position -->
-  <link name="camera_link">
+  <link name="r200_link">
+    <inertial>
+      <mass value="0.200"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="5.8083e-4" ixy="0" ixz="0" iyy="3.0833e-5" iyz="0" izz="5.9083e-4"/>
+    </inertial>
     <visual>
-      <origin rpy="1.57079632679 0 1.57079632679" xyz="-1.0088 -0.8966 -1.0483"/>
+      <origin rpy="0 0 0" xyz="0.02 0.051 0.25"/>
       <geometry>
-        <mesh filename="package://realsense_navigation/robot_description/meshes/sensors/r200_entire.dae"/>
+        <!--Dimensions taken from https://software.intel.com/en-us/realsense/devkit-->
+        <box size="0.007 0.130 0.02"/>
       </geometry>
+      <material name="DarkGrey">
+        <color rgba="0.3 0.3 0.3 1"/>
+      </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <origin rpy="0 0 0" xyz="0 0.051 0"/>
       <geometry>
-        <box size="0.130 0.567 0.118"/>
+        <!--Dimensions taken from https://software.intel.com/en-us/realsense/devkit-->
+        <box size="0.007 0.130 0.02"/>
       </geometry>
     </collision>
-    <!-- This inertial field needs doesn't contain reliable data!! -->
-    <inertial>
-      <mass value="0.564"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257"/>
-    </inertial>
   </link>
-  <!--
-    ==  Depth joints & links ==
-    -->
-  <joint name="camera_depth_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0.0274 0"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_depth_frame"/>
-  </joint>
-  <link name="camera_depth_frame"/>
-  <joint name="camera_depth_optical_joint" type="fixed">
-    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
-    <parent link="camera_depth_frame"/>
-    <child link="camera_depth_optical_frame"/>
-  </joint>
-  <link name="camera_depth_optical_frame"/>
-  <gazebo reference="camera_link">
-    <sensor name="camera" type="depth">
-      <always_on>true</always_on>
-      <update_rate>20.0</update_rate>
-      <camera>
-        <horizontal_fov>1.0471975512</horizontal_fov>
-        <image>
-          <format>B8G8R8</format>
-          <width>640</width>
-          <height>480</height>
-        </image>
-        <clip>
-          <near>0.05</near>
-          <far>8.0</far>
-        </clip>
-      </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="kinect_camera_controller">
-        <cameraName>camera</cameraName>
-        <alwaysOn>true</alwaysOn>
-        <updateRate>10</updateRate>
-        <imageTopicName>rgb/image_raw</imageTopicName>
-        <depthImageTopicName>depth/image_raw</depthImageTopicName>
-        <pointCloudTopicName>depth/points</pointCloudTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
-        <frameName>camera_depth_optical_frame</frameName>
-        <baseline>0.1</baseline>
-        <distortion_k1>0.0</distortion_k1>
-        <distortion_k2>0.0</distortion_k2>
-        <distortion_k3>0.0</distortion_k3>
-        <distortion_t1>0.0</distortion_t1>
-        <distortion_t2>0.0</distortion_t2>
-        <pointCloudCutoff>0.4</pointCloudCutoff>
-      </plugin>
-    </sensor>
+  <!--      
+      <joint name="${name}_depth_joint" type="fixed">
+        <origin xyz="0 -0.051 0.004" rpy="0 0 0" />
+        <parent link="${name}_link" />
+        <child link="${name}_depth_frame"/>
+      </joint>
+      <link name="${name}_depth_frame"/>
+      <joint name="${name}_depth_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <parent link="${name}_depth_frame" />
+        <child link="${name}_depth_optical_frame"/>
+      </joint>
+      <link name="${name}_depth_optical_frame"/>
+      <joint name="${name}_depth_joint_aux" type="fixed">
+        <origin xyz="0 0.032 0.004" rpy="0 0 0" />
+        <parent link="${name}_link" />
+        <child link="${name}_depth_frame_aux"/>
+      </joint>
+      <link name="${name}_depth_frame_aux"/>
+      <joint name="${name}_depth_optical_joint_aux" type="fixed">
+        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <parent link="${name}_depth_frame_aux" />
+        <child link="${name}_depth_optical_frame_aux"/>
+      </joint>
+      <link name="${name}_depth_optical_frame_aux"/>
+      <joint name="${name}_rgb_joint" type="fixed">
+        <origin xyz="0 -0.045 0.004" rpy="0 0 0" />
+        <parent link="${name}_link" />
+        <child link="${name}_rgb_frame"/>
+      </joint>
+      <link name="${name}_rgbd_cam_link"/>
+      <joint name="${name}_rgb_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <parent link="${name}_rgb_frame" />
+        <child link="${name}_rgb_optical_frame"/>
+      </joint>
+      <link name="${name}_rgb_optical_frame"/>
+      -->
+  <gazebo reference="r200_link">
+    <material>Gazebo/Grey</material>
   </gazebo>
   <!-- 
   <addonbox xbox="0.1" ybox="0.1" zbox="0.1" parent="base_link"/>
+  <sensor_r200 parent="tower_link"/>
   <sensor_r200 parent="base_link"/>
 -->
 </robot>

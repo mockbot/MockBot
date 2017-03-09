@@ -5,7 +5,11 @@
   <xacro:include filename="$(find mockbot)/urdf/materials.urdf.xacro" />
   <xacro:include filename="$(find mockbot)/urdf/wheel.urdf.xacro" />
   <xacro:include filename="$(find mockbot)/urdf/addons.urdf.xacro" />
+  <xacro:include filename="$(find mockbot)/urdf/realsense_camera.urdf.xacro" />
+
+  <!--
   <xacro:include filename="$(find mockbot)/urdf/r200.urdf.xacro" />
+  -->
  
   <!-- PROPERTY LIST -->
   <!--All units in m-kg-s-radians unit system -->
@@ -54,10 +58,11 @@
   <wheel fb="back" lr="right" parent="base_link" translateX="-1" translateY="-1" flipY="-1"/>
   <wheel fb="back" lr="left" parent="base_link" translateX="-1" translateY="1" flipY="-1"/>
 
-  <sensor_r200 parent="base_link"/>
+  <realsense_camera_model name="r200" parent="base_link" />
 
 <!-- 
   <addonbox xbox="0.1" ybox="0.1" zbox="0.1" parent="base_link"/>
+  <sensor_r200 parent="tower_link"/>
   <sensor_r200 parent="base_link"/>
 -->
 

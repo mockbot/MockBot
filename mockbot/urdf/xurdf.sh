@@ -5,6 +5,6 @@ urdf_to_graphiz $target
 
 sleep 3
 
-#cat $target
+cat $target
 
 echo "http://mymodelrobot.appspot.com"
