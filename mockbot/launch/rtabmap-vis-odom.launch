@@ -1,0 +1,48 @@
+<launch>
+  <!--  roslaunch freenect_launch freenect.launch -->
+  <include file="$(find freenect_launch)/launch/freenect.launch">
+    <arg name="depth_registration" value="true"/>
+  </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="camera_rgb_optical_frame" args="1 0 0 0 0 0 1 base_link camera_rgb_optical_frame 100" />
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" />
+
+  <!-- ROSBridge -->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+
+  <!-- WebVideoServer -->
+  <node name="web_video_server" pkg="web_video_server" type="web_video_server" />
+
+
+  <group ns="rtabmap">
+
+    <!-- Odometry -->
+    <node pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
+      <remap from="rgb/image"       to="/camera/rgb/image_rect_color"/>
+      <remap from="depth/image"     to="/camera/depth_registered/image_raw"/>
+      <remap from="rgb/camera_info" to="/camera/depth_registered/camera_info"/>
+
+      <param name="frame_id" type="string" value="base_link"/>
+    </node>
+
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+          <param name="frame_id" type="string" value="base_link"/>
+          <param name="subscribe_depth" type="bool" value="true"/>
+
+          <remap from="odom" to="odom"/>
+          <remap from="rgb/image" to="/camera/rgb/image_rect_color"/>
+          <remap from="depth/image" to="/camera/depth_registered/image_raw"/>
+          <remap from="rgb/camera_info" to="/camera/rgb/camera_info"/>
+
+          <param name="queue_size" type="int" value="10"/>
+
+          <!-- RTAB-Map's parameters -->
+          <param name="RGBD/AngularUpdate" type="string" value="0.01"/>
+          <param name="RGBD/LinearUpdate" type="string" value="0.01"/>
+          <param name="Rtabmap/TimeThr" type="string" value="700"/>
+          <param name="Mem/RehearsalSimilarity" type="string" value="0.45"/>
+          <param name="RGBD/OptimizeFromGraphEnd" type="string" value="true"/>
+    </node>
+  </group>
+</launch>
+
