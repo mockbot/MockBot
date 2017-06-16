@@ -12,7 +12,8 @@ Abstract:
 
 A homebrew robot system from scratch based on ros reusable modules.
 
-This projects gives an introduction  for beginners  to setup an own robot system from scratch using ros components.
+This projects gives an introduction  for beginners  to setup an own robot system
+from scratch using ros components.
 The idea is to show complete development step by step.
 
 Install ros at Ubuntu with standard debian methods
@@ -20,7 +21,8 @@ Install ros at Ubuntu with standard debian methods
 NEW: Script for installation of complete ROS system from scratch
 
 1. install basic ubuntu (e.g. Ubuntu Studio LTS 14.04, low latency kernel !!!)
-2. download install script from https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
+2. download install script from
+    https://github.com/mockbot/MockBot/blob/master/install_ros_dev.sh
 3. sudo ./install_ros_dev.sh distro
 
 Ready!

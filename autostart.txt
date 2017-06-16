@@ -35,3 +35,18 @@ Now, your ros launchfile will be startet at system boot.
 
 Not perfect as robot_upstart, but it works ;-)
 
+
+Today: I prefer the usage of systemd services.
+
+create a ros.service file at /etc/systemd/system/ros.service:
+
+[Unit]
+Description=Mockbot Mockturtle ROS Startup
+
+[Service]
+ExecStart=/opt/ros/prog/MockBot/mockbot/launch/mockbot.launch
+
+[Install]
+WantedBy=multi-user.target
+
+Enable the new service with sysctl and enjoy your robot.

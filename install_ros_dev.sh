@@ -1,15 +1,15 @@
 #!/bin/bash
 
 if [ "$1" == "" ] ; then
-	echo -e "Parameter distribution (groovy/hydro) missing !!!"
+	echo -e "Parameter distribution (groovy/hydro/kinetic) missing !!!"
 	exit
 fi
 
 export OPTION="--yes"
 export DISTRO=$1
-echo Install and setup ROS $DISTRO for USER $SUDO_USER 
+echo Install and setup ROS $DISTRO for USER $SUDO_USER
 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $DISTRO main" > /etc/apt/sources.list.d/ros-latest.list'
 
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 
@@ -25,7 +25,7 @@ sudo rosdep init
 rosdep update
 
 grep -i "/opt/ros/$DISTRO/setup.bash" $HOME/.bashrc
-if [ $? -eq 1 ] ; then 
+if [ $? -eq 1 ] ; then
 	echo ROS Env updated
 	echo "source /opt/ros/$DISTRO/setup.bash" >> $HOME/.bashrc
 else
@@ -71,5 +71,3 @@ fi
 
 
 echo "Have fun"
-
-
