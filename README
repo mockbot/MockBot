@@ -62,4 +62,8 @@ Changes:
 Current ATOM CPU is too slow for SLAM and more.
 I've changed to Intel NUC i3 CPU, 8GB memory and 64GB SSD
 New tests with Odroid C1 and RPI2 started
-It's amazing !!!
+
+Result: forget RPI and C1.
+Doing visual SLAM needs more power and a lot of memory.
+
+I suggest: NUCi5 16GB memory and 128GB SSS.
